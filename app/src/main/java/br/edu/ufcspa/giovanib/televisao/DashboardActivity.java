@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class DashboardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -69,6 +70,13 @@ public class DashboardActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Toast toast = Toast.makeText(this, "Configurações", Toast.LENGTH_SHORT);
+            toast.show();
+            return true;
+        }
+        if (id == R.id.action_about) {
+            Toast toast = Toast.makeText(this, "Sobre", Toast.LENGTH_SHORT);
+            toast.show();
             return true;
         }
         if (id == R.id.action_logoff) {
