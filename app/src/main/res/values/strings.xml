@@ -8,12 +8,15 @@
     <string name="sucesso_login">Entrando...</string>
     <string name="erro_login">Usuário e/ou Senha inválidos!</string>
     <string name="erro_vazio">Campos em branco.</string>
+
     <string name="title_activity_dashboard">DashboardActivity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Configurações</string>
+    <string name="action_about">Sobre</string>
+    <string name="action_logoff">Sair</string>
 
 
 </resources>

@@ -7,9 +7,14 @@
         android:title="@string/action_settings"
         app:showAsAction="never" />
     <item
+        android:id="@+id/action_about"
+        app:showAsAction="never"
+        android:title="@string/action_about"
+        android:orderInCategory="100"/>
+    <item
         android:id="@+id/action_logoff"
         android:orderInCategory="100"
-        android:title="Sair"
+        android:title="@string/action_logoff"
         app:showAsAction="never" />
 
 </menu>
