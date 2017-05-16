@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Tele-Visão</string>
+
+    <!-- String LoginActivity -->
+    <string name="usuario">Usuário</string>
+    <string name="senha">Senha</string>
+    <string name="botao_entrar">Entrar</string>
+    <string name="sucesso_login">Entrando...</string>
+    <string name="erro_login">Usuário e/ou Senha inválidos!</string>
+    <string name="erro_vazio">Campos em branco.</string>
+    <string name="title_activity_dashboard">DashboardActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+
+</resources>
