@@ -7,12 +7,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="br.edu.ufcspa.giovanib.televisao.LoginActivity">
+    tools:context="br.edu.ufcspa.giovanib.televisao.controle.LoginActivity">
 
     <ImageView
         android:layout_marginBottom="25sp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_marginTop="25dp"
         android:src="@drawable/logo256"/>
@@ -52,9 +52,11 @@
     <Button
         android:layout_width="match_parent"
         android:layout_gravity="bottom"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:onClick="entrarOnClick"
+        android:background="@color/colorPrimary"
         android:text="@string/botao_entrar"
         android:layout_height="wrap_content" />
 

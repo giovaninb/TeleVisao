@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorSplash"
-    tools:context="br.edu.ufcspa.giovanib.televisao.SplashScreenActivity">
+    tools:context="br.edu.ufcspa.giovanib.televisao.controle.SplashScreenActivity">
 
     <ImageView
         android:id="@+id/imgLogo"

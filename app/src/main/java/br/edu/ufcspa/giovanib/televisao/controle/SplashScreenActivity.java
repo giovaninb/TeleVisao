@@ -1,9 +1,11 @@
-package br.edu.ufcspa.giovanib.televisao;
+package br.edu.ufcspa.giovanib.televisao.controle;
 
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import br.edu.ufcspa.giovanib.televisao.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
 

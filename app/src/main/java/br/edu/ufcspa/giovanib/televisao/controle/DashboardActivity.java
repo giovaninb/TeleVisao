@@ -1,4 +1,4 @@
-package br.edu.ufcspa.giovanib.televisao;
+package br.edu.ufcspa.giovanib.televisao.controle;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import br.edu.ufcspa.giovanib.televisao.R;
 
 public class DashboardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -94,18 +96,17 @@ public class DashboardActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_solicita_atendimento) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_about) {
 
-        } else if (id == R.id.nav_slideshow) {
+            Toast toast = Toast.makeText(this, "Sobre", Toast.LENGTH_SHORT);
+            toast.show();
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_logoff) {
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

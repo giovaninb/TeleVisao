@@ -1,4 +1,4 @@
-package br.edu.ufcspa.giovanib.televisao;
+package br.edu.ufcspa.giovanib.televisao.controle;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import br.edu.ufcspa.giovanib.televisao.R;
 
 public class LoginActivity extends AppCompatActivity {
 
