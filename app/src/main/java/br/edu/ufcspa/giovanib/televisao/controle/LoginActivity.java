@@ -38,7 +38,6 @@ public class LoginActivity extends AppCompatActivity {
         String usuarioInformado = usuario.getText().toString();
         String senhaInformada = senha.getText().toString();
 
-        // TODO maneira de validar os campos
         // TODO colocar email nos campos
 
         // TODO consultar banco de dados para verificar login
