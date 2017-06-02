@@ -2,8 +2,6 @@ package br.edu.ufcspa.giovanib.televisao.controle;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -22,8 +20,9 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 import br.edu.ufcspa.giovanib.televisao.R;
 
@@ -32,9 +31,11 @@ public class DashboardActivity extends AppCompatActivity
 
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
-
     private ViewPager mViewPager;
 
+    // para criar a lista de Atendimento e Usuario
+    private ListView listView;
+    private SolicitaAtendimentoActivity solicitaAtendimentoActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,7 +131,8 @@ public class DashboardActivity extends AppCompatActivity
 
         if (id == R.id.nav_solicita_atendimento) {
 
-            startActivity(new Intent(this, SolicitaAtendimento.class));
+            startActivity(new Intent(this, SolicitaAtendimentoActivity.class));
+
 
         } else if (id == R.id.nav_about) {
 
@@ -141,6 +143,10 @@ public class DashboardActivity extends AppCompatActivity
 
             startActivity(new Intent(this, LoginActivity.class));
             finish();
+        } else if (id == R.id.nav_camera) {
+
+            startActivity(new Intent(this, MyCameraActivity.class));
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -152,7 +158,10 @@ public class DashboardActivity extends AppCompatActivity
     //ListView
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+        //Pega o item que foi selecionado.
+//        ItemListView item = adapterListView.getItem(position);
+//        //Demostração
+//        Toast.makeText(this, "Você Clicou em: " + item.getTexto(), Toast.LENGTH_LONG).show();
     }
 
     @Override

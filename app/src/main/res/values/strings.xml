@@ -4,12 +4,15 @@
     <!-- String LoginActivity -->
     <string name="usuario">Usuário</string>
     <string name="senha">Senha</string>
+
+    <string name="nome_usuario">Usuário</string>
+    <string name="perfil_usuario">Perfil</string>
+    <string name="email_usuario">seu_email@provedor.com</string>
+
     <string name="botao_entrar">Entrar</string>
     <string name="sucesso_login">Entrando...</string>
     <string name="erro_login">Usuário e/ou Senha inválidos!</string>
     <string name="erro_vazio">Campos em branco.</string>
-
-    <string name="title_activity_dashboard">DashboardActivity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -19,6 +22,7 @@
     <string name="action_about">Sobre</string>
     <string name="action_logoff">Sair</string>
     <string name="action_history">Histórico</string>
+    <string name="action_camera">Abrir câmera</string>
 
     <string name="tabbed_atend">Atendimentos</string>
     <string name="tabbed_user">Usuários</string>

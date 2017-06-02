@@ -5,11 +5,13 @@ package br.edu.ufcspa.giovanib.televisao.modelo;
  */
 
 public class Atendimento {
+    private String nomePaciente;
     private String medicoSolicitante;
     private String hospital;
     private String andar;
     private String leito;
     private String descricao;
+    private EstadoAtendimento estadoAtendimento;
 
     public String getMedicoSolicitante() {
         return medicoSolicitante;
@@ -49,6 +51,22 @@ public class Atendimento {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public EstadoAtendimento getEstadoAtendimento() {
+        return estadoAtendimento;
+    }
+
+    public void setEstadoAtendimento(EstadoAtendimento estadoAtendimento) {
+        this.estadoAtendimento = estadoAtendimento;
+    }
+
+    public String getNomePaciente() {
+        return nomePaciente;
+    }
+
+    public void setNomePaciente(String nomePaciente) {
+        this.nomePaciente = nomePaciente;
     }
 }
 

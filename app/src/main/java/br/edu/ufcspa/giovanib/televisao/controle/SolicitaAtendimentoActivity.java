@@ -2,13 +2,11 @@ package br.edu.ufcspa.giovanib.televisao.controle;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -18,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class SolicitaAtendimento extends AppCompatActivity implements OnItemSelectedListener {
+public class SolicitaAtendimentoActivity extends AppCompatActivity implements OnItemSelectedListener {
 
     private EditText medicoSolicitante;
     private EditText hospital;
@@ -26,7 +24,7 @@ public class SolicitaAtendimento extends AppCompatActivity implements OnItemSele
     private EditText leito;
     private EditText descricao;
     private Spinner spinner;
-    private DashboardActivity dashboardActivity;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +56,8 @@ public class SolicitaAtendimento extends AppCompatActivity implements OnItemSele
 
         // attaching data adapter to spinner
         spinner.setAdapter(dataAdapter);
+
+
     }
 
 
@@ -73,11 +73,11 @@ public class SolicitaAtendimento extends AppCompatActivity implements OnItemSele
         // TODO Auto-generated method stub
     }
 
-    public void cadastrarOnClick(View view) {
-
-        Toast.makeText(this, "Inserindo na lista..", Toast.LENGTH_LONG).show();
-//        ListView listView = (ListView) findViewById(R.id.lista);
-//        listView.setAdapter();
+    // acao do botao solicitar atendimento
+    public void inserirOnClick(View view) {
+        Toast.makeText(this, "Solicitação realizada com sucesso!", Toast.LENGTH_LONG).show();
 
     }
+
+
 }
