@@ -23,7 +23,6 @@ import br.edu.ufcspa.giovanib.televisao.modelo.Usuario;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText usuario;
-    private EditText senha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,17 +30,16 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         usuario = (EditText) findViewById(R.id.usuario);
-        senha = (EditText) findViewById(R.id.senha);
+
     }
 
     public void entrarOnClick(View v){
         String usuarioInformado = usuario.getText().toString();
-        String senhaInformada = senha.getText().toString();
 
         // TODO colocar email nos campos
 
         // TODO consultar banco de dados para verificar login
-        if ("admin".equals(usuarioInformado) && "admin".equals(senhaInformada))
+        if ("admin".equals(usuarioInformado))
         {
             // vai para outra activity
             String mensagemSucesso = getString(R.string.sucesso_login);
@@ -61,7 +59,6 @@ public class LoginActivity extends AppCompatActivity {
 
     public void limparCampos() {
         usuario.setText("");
-        senha.setText("");
         usuario.requestFocus();
     }
 

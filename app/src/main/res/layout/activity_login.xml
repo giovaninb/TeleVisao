@@ -36,21 +36,6 @@
 
     <requestFocus/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:text="@string/senha"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_height="wrap_content" />
-
-    <EditText
-        android:id="@+id/senha"
-        android:inputType="textPassword"
-        android:hint="sua_senha"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
     <Button
         android:layout_width="match_parent"

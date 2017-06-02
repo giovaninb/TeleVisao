@@ -31,19 +31,28 @@
         </activity>
 
         <!-- Login Activity -->
-        <activity
-            android:name=".controle.LoginActivity" />
+        <activity android:name=".controle.LoginActivity" />
 
         <!-- DashboardActivity -->
         <activity
             android:name=".controle.DashboardActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <uses-feature
+                android:name="android.hardware.camera"
+                android:required="false" />
 
-        <!-- SolicitaAtendimento -->
-        <activity android:name=".controle.SolicitaAtendimento" />
+        </activity>
 
+        <!-- SolicitaAtendimentoActivity -->
+        <activity android:name=".controle.SolicitaAtendimentoActivity" />
 
+        <!-- MyCameraActivity -->
+        <activity android:name=".controle.MyCameraActivity">
+            <uses-permission android:name="android.permission.RECORD_AUDIO" />
+            <uses-permission android:name="android.permission.CAMERA" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        </activity>
     </application>
 
 </manifest>

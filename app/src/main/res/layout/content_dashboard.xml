@@ -17,22 +17,5 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </RelativeLayout>
-    </ScrollView>
-
-    <ListView
-        android:layout_width="match_parent"
-        android:id="@+id/lista"
-        android:layout_height="match_parent">
-
-    </ListView>
-
 
 </RelativeLayout>

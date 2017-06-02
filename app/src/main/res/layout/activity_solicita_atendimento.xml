@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="br.edu.ufcspa.giovanib.televisao.controle.SolicitaAtendimento">
+    tools:context="br.edu.ufcspa.giovanib.televisao.controle.SolicitaAtendimentoActivity">
 
     <!--<include-->
         <!--layout="@layout/app_bar_solicita_atendimento"-->
@@ -106,12 +106,13 @@
                 android:inputType="textMultiLine" />
 
             <Button
+                android:id="@+id/buttonSolicitaAtend"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:layout_margin="10dp"
                 android:background="@color/colorPrimary"
-                android:onClick="cadastrarOnClick"
+                android:onClick="inserirOnClick"
                 android:text="@string/action_solicita_atendimento" />
 
             <Space
