@@ -3,11 +3,22 @@ package br.edu.ufcspa.giovanib.televisao.controle;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import br.edu.ufcspa.giovanib.televisao.R;
+import br.edu.ufcspa.giovanib.televisao.client.LoginClient;
+import br.edu.ufcspa.giovanib.televisao.modelo.Usuario;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -53,5 +64,29 @@ public class LoginActivity extends AppCompatActivity {
         usuario.setText("");
         senha.setText("");
         usuario.requestFocus();
+    }
+
+
+    @Override
+    protected void onResume() {
+
+        /*testando autenticacao*/
+        Usuario u = new Usuario(1,"","","icaromscastro@gmail.com","bubassaur");
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+        Log.d("backend","gson formated usuario:"+gson.toJson(u));
+
+
+        LoginClient client = new LoginClient(getApplicationContext());
+        try {
+            client.postJson(new JSONObject(gson.toJson(u)));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+        super.onResume();
     }
 }
