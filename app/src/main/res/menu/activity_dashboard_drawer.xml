@@ -14,6 +14,10 @@
             android:id="@+id/nav_camera"
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/action_camera" />
+        <item
+            android:id="@+id/nav_password"
+            android:icon="@drawable/ic_security"
+            android:title="@string/action_password" />
 
     </group>
 

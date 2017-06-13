@@ -23,8 +23,10 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import br.edu.ufcspa.giovanib.televisao.R;
+import br.edu.ufcspa.giovanib.televisao.modelo.Atendimento;
 
 public class DashboardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, ListView.OnItemSelectedListener {
@@ -34,8 +36,9 @@ public class DashboardActivity extends AppCompatActivity
     private ViewPager mViewPager;
 
     // para criar a lista de Atendimento e Usuario
-    private ListView listView;
-    private SolicitaAtendimentoActivity solicitaAtendimentoActivity;
+    public List<Atendimento> listaAtendimentos;
+    public ListView listaDeAtenListView;
+    public AdapterListaAtend adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,8 +113,7 @@ public class DashboardActivity extends AppCompatActivity
             return true;
         }
         if (id == R.id.action_about) {
-            Toast toast = Toast.makeText(this, "Sobre", Toast.LENGTH_SHORT);
-            toast.show();
+            startActivity(new Intent(this, SobreActivity.class));
             return true;
         }
         if (id == R.id.action_logoff) {
@@ -135,9 +137,7 @@ public class DashboardActivity extends AppCompatActivity
 
 
         } else if (id == R.id.nav_about) {
-
-            Toast toast = Toast.makeText(this, "Sobre", Toast.LENGTH_SHORT);
-            toast.show();
+            startActivity(new Intent(this, SobreActivity.class));
 
         } else if (id == R.id.nav_logoff) {
 
@@ -147,6 +147,8 @@ public class DashboardActivity extends AppCompatActivity
 
             startActivity(new Intent(this, MyCameraActivity.class));
 
+        } else if (id == R.id.nav_password) {
+            startActivity(new Intent(this, ChangePasswdActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

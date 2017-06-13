@@ -1,25 +1,39 @@
 package br.edu.ufcspa.giovanib.televisao.modelo;
 
+
+
 /**
  * Created by gnbettoni on 22/05/17.
  */
 
 public class Atendimento {
     private String nomePaciente;
-    private String medicoSolicitante;
+//    private String medicoSolicitante;
     private String hospital;
     private String andar;
     private String leito;
     private String descricao;
     private EstadoAtendimento estadoAtendimento;
 
-    public String getMedicoSolicitante() {
-        return medicoSolicitante;
+    public Atendimento() {
     }
 
-    public void setMedicoSolicitante(String medicoSolicitante) {
-        this.medicoSolicitante = medicoSolicitante;
+    public Atendimento(String nomePaciente, String hospital, String andar, String leito, String descricao, EstadoAtendimento estadoAtendimento) {
+        this.nomePaciente = nomePaciente;
+        this.hospital = hospital;
+        this.andar = andar;
+        this.leito = leito;
+        this.descricao = descricao;
+        this.estadoAtendimento = estadoAtendimento;
     }
+
+    //    public String getMedicoSolicitante() {
+//        return medicoSolicitante;
+//    }
+//
+//    public void setMedicoSolicitante(String medicoSolicitante) {
+//        this.medicoSolicitante = medicoSolicitante;
+//    }
 
     public String getHospital() {
         return hospital;

@@ -23,6 +23,7 @@
     <string name="action_logoff">Sair</string>
     <string name="action_history">Histórico</string>
     <string name="action_camera">Abrir câmera</string>
+    <string name="action_password">Alterar Senha</string>
 
     <string name="tabbed_atend">Atendimentos</string>
     <string name="tabbed_user">Usuários</string>
@@ -39,6 +40,7 @@
     <string name="hint_andar">Digite o andar do paciente</string>
     <string name="hint_leito">Digite o leito do paciente</string>
     <string name="hint_descricao">Digite a Resumo/História - Clínica do paciente</string>
+    <string name="hint_novaSenha">Digite uma nova Senha</string>
 
 
 </resources>

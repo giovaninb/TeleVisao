@@ -68,7 +68,7 @@ public class AdapterListaUsuario extends BaseAdapter {
 
 
         //populando as Views
-        nome.setText(usuario.getNomeUsuario());
+        nome.setText(usuario.getNome());
 
 
         return view;

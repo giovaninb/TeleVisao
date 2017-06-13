@@ -22,6 +22,7 @@ public class MyCameraActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_camera);
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
 
         this.imageView = (ImageView)this.findViewById(R.id.imageView1);
 //        this.imageView = (TextureView)this.findViewById(R.id.surface_view);

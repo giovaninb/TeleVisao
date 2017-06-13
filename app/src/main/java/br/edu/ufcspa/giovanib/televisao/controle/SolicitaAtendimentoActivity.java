@@ -1,5 +1,6 @@
 package br.edu.ufcspa.giovanib.televisao.controle;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -7,10 +8,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 import br.edu.ufcspa.giovanib.televisao.R;
+import br.edu.ufcspa.giovanib.televisao.modelo.Atendimento;
+import br.edu.ufcspa.giovanib.televisao.modelo.EstadoAtendimento;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +22,9 @@ import java.util.List;
 
 public class SolicitaAtendimentoActivity extends AppCompatActivity implements OnItemSelectedListener {
 
-    private EditText medicoSolicitante;
-    private EditText hospital;
+//    private EditText medicoSolicitante;
+    private EditText nomePac;
+    private Spinner hospital;
     private EditText andar;
     private EditText leito;
     private EditText descricao;
@@ -30,6 +35,8 @@ public class SolicitaAtendimentoActivity extends AppCompatActivity implements On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_solicita_atendimento);
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         // Elemento do Spinner
         spinner = (Spinner) findViewById(R.id.solicHospital);
@@ -48,7 +55,7 @@ public class SolicitaAtendimentoActivity extends AppCompatActivity implements On
         categories.add("Pavilhão Pereira Filho");
         categories.add("Posto Santa Maria");
 
-        // Creating adapter for spinner
+        // Criando Adapter para Spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
 
         // Drop down layout style - list view with radio button
@@ -75,8 +82,40 @@ public class SolicitaAtendimentoActivity extends AppCompatActivity implements On
 
     // acao do botao solicitar atendimento
     public void inserirOnClick(View view) {
-        Toast.makeText(this, "Solicitação realizada com sucesso!", Toast.LENGTH_LONG).show();
 
+//        nomePac = (EditText) findViewById(R.id.solicNomePac);
+//        hospital = (Spinner) findViewById(R.id.solicHospital);
+//        andar = (EditText) findViewById(R.id.solicAndar);
+//        leito = (EditText) findViewById(R.id.solicLeito);
+//        descricao = (EditText) findViewById(R.id.solicDescricao);
+
+//        Atendimento atendimento = new Atendimento(nomePac.getText().toString(),hospital.getSelectedItem().toString(),
+//                andar.getText().toString(),leito.getText().toString(),descricao.getText().toString(),
+//                EstadoAtendimento.DISPONIVEL);
+
+
+//        List<Atendimento> listaAtendimentos = Atendimento.listAll(Atendimento.class);
+//
+//        ListView listaDeAtenListView = (ListView) findViewById(R.id.lista);
+//
+//        //chamada da nossa implementação
+//        AdapterListaAtend adapter = new AdapterListaAtend(listaAtendimentos, this);
+//
+//        listaDeAtenListView.setAdapter(adapter);
+
+
+        Toast.makeText(this, "Solicitação realizada com sucesso!", Toast.LENGTH_LONG).show();
+        limparCampos();
+
+    }
+
+    public void limparCampos() {
+        nomePac.setText("");
+        hospital.setSelection(0, true);
+        andar.setText("");
+        leito.setText("");
+        descricao.setText("");
+        nomePac.requestFocus();
     }
 
 

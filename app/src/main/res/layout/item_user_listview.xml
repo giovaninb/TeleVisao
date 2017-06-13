@@ -31,14 +31,14 @@
             android:id="@+id/lista_user_perfil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/solicAt_hospital"
+            android:text="@string/perfil_usuario"
             android:textSize="20dp" />
 
         <TextView
             android:id="@+id/lista_user_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/solicAt_descricao"
+            android:text="@string/email_usuario"
             android:textSize="20dp" />
     </LinearLayout>
 
