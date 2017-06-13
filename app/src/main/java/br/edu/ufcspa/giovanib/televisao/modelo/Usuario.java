@@ -10,6 +10,7 @@ public class Usuario {
     private String perfil;
     private String email;
     private String senha;
+    private EstadoUsuario estadoUsuario;
 
     public Usuario(int id_usuario, String nome, String perfil, String email, String senha) {
         this.id_usuario = id_usuario;
@@ -60,6 +61,13 @@ public class Usuario {
         this.senha = senha;
     }
 
+    public EstadoUsuario getEstadoUsuario() {
+        return estadoUsuario;
+    }
+
+    public void setEstadoUsuario(EstadoUsuario estadoUsuario) {
+        this.estadoUsuario = estadoUsuario;
+    }
 
     @Override
     public String toString() {

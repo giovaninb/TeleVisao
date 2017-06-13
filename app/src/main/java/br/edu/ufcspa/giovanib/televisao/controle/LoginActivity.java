@@ -1,6 +1,7 @@
 package br.edu.ufcspa.giovanib.televisao.controle;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +26,10 @@ public class LoginActivity extends AppCompatActivity {
     private EditText usuario;
     private EditText senha;
 
+    private Usuario user;
+    private String emailInformado;
+    private String senhaInformada;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,17 +37,40 @@ public class LoginActivity extends AppCompatActivity {
 
         usuario = (EditText) findViewById(R.id.usuario);
         senha = (EditText) findViewById(R.id.senha);
+
+//        AsyncTask.execute(new Runnable() {
+//            @Override
+//            public void run() {
+//                /* Todas as minhas conexoes devem ir aqui. Testando autenticacao */
+//                user = new Usuario(1,"","","icaromscastro@gmail.com","bubassaur");
+//                GsonBuilder builder = new GsonBuilder();
+//                Gson gson = builder.create();
+//                Log.d("backend","gson formated usuario:"+gson.toJson(user));
+//
+//
+//                LoginClient client = new LoginClient(getApplicationContext());
+//                try {
+//                    client.postJson(new JSONObject(gson.toJson(user)));
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+//
+//        emailInformado = user.getEmail();
+//        senhaInformada = user.getSenha();
+
+
     }
 
     public void entrarOnClick(View v){
         String usuarioInformado = usuario.getText().toString();
-        String senhaInformada = senha.getText().toString();
+        String senhaInformado = usuario.getText().toString();
 
-        // TODO maneira de validar os campos
         // TODO colocar email nos campos
 
         // TODO consultar banco de dados para verificar login
-        if ("admin".equals(usuarioInformado) && "admin".equals(senhaInformada))
+        if ("admin".equals(usuarioInformado) && "admin".equals(senhaInformado))
         {
             // vai para outra activity
             String mensagemSucesso = getString(R.string.sucesso_login);
@@ -62,31 +90,30 @@ public class LoginActivity extends AppCompatActivity {
 
     public void limparCampos() {
         usuario.setText("");
-        senha.setText("");
         usuario.requestFocus();
     }
 
 
-    @Override
-    protected void onResume() {
-
-        /*testando autenticacao*/
-        Usuario u = new Usuario(1,"","","icaromscastro@gmail.com","bubassaur");
-        GsonBuilder builder = new GsonBuilder();
-        Gson gson = builder.create();
-        Log.d("backend","gson formated usuario:"+gson.toJson(u));
-
-
-        LoginClient client = new LoginClient(getApplicationContext());
-        try {
-            client.postJson(new JSONObject(gson.toJson(u)));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-
-
-
-        super.onResume();
-    }
+//    @Override
+//    protected void onResume() {
+//
+//        /*testando autenticacao*/
+//        Usuario u = new Usuario(1,"","","icaromscastro@gmail.com","bubassaur");
+//        GsonBuilder builder = new GsonBuilder();
+//        Gson gson = builder.create();
+//        Log.d("backend","gson formated usuario:"+gson.toJson(u));
+//
+//
+//        LoginClient client = new LoginClient(getApplicationContext());
+//        try {
+//            client.postJson(new JSONObject(gson.toJson(u)));
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//
+//
+//
+//
+//        super.onResume();
+//    }
 }

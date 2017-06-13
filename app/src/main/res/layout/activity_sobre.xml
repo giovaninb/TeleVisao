@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.edu.ufcspa.giovanib.televisao.controle.SobreActivity">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="25dp" />
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="200dp"
+        android:layout_height="180dp"
+        android:layout_gravity="center"
+        android:src="@drawable/logo256" />
+
+
+
+    <TextView
+        android:id="@+id/app_sobre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/app_name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="45sp"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/app_version"
+        android:layout_margin="15dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Versão 1.0"
+        android:textAlignment="center"
+        android:textColor="?attr/colorControlHighlight"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/infobio"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/imageView2"
+        android:layout_toEndOf="@+id/imageView2" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="25dp" />
+
+</LinearLayout>
