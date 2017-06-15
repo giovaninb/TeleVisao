@@ -4,12 +4,15 @@
     <!-- String LoginActivity -->
     <string name="usuario">Usuário</string>
     <string name="senha">Senha</string>
+
+    <string name="nome_usuario">Usuário</string>
+    <string name="perfil_usuario">Perfil</string>
+    <string name="email_usuario">seu_email@provedor.com</string>
+
     <string name="botao_entrar">Entrar</string>
     <string name="sucesso_login">Entrando...</string>
     <string name="erro_login">Usuário e/ou Senha inválidos!</string>
     <string name="erro_vazio">Campos em branco.</string>
-
-    <string name="title_activity_dashboard">DashboardActivity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -18,6 +21,26 @@
     <string name="action_solicita_atendimento">Solicitar Atendimento</string>
     <string name="action_about">Sobre</string>
     <string name="action_logoff">Sair</string>
+    <string name="action_history">Histórico</string>
+    <string name="action_camera">Abrir câmera</string>
+    <string name="action_password">Alterar Senha</string>
+
+    <string name="tabbed_atend">Atendimentos</string>
+    <string name="tabbed_user">Usuários</string>
+
+    <string name="solicAt_nomePac">Nome do Paciente</string>
+    <string name="solicAt_Solic">Solicitante</string>
+    <string name="solicAt_hospital">Hospital</string>
+    <string name="solicAt_andar">Andar</string>
+    <string name="solicAt_leito">Leito</string>
+    <string name="solicAt_descricao">Resumo/História - Clínica</string>
+
+    <!--Dicas-->
+    <string name="hint_nomePac">Digite o nome do paciente</string>
+    <string name="hint_andar">Digite o andar do paciente</string>
+    <string name="hint_leito">Digite o leito do paciente</string>
+    <string name="hint_descricao">Digite a Resumo/História - Clínica do paciente</string>
+    <string name="hint_novaSenha">Digite uma nova Senha</string>
 
 
 </resources>

@@ -37,10 +37,9 @@ public class LoginClient extends HttpClient{
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    if(response.getString("result").equals(0)){
+                    if(response.getString("result").equals(0)) {
                         Log.e("Erro", "JSON Post erro");
-                        Log.e("Erro", "JSON Post erro");
-                    }else {
+                    } else {
                         //
 
                         Log.d("Response JSON", "Login autenticado");
@@ -67,5 +66,7 @@ public class LoginClient extends HttpClient{
         com.android.volley.RequestQueue queue = Volley.newRequestQueue(context);
         queue.add(jsonObjectRequest);
     }
+
+
 
 }
