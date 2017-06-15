@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         String usuarioInformado = usuario.getText().toString();
         String senhaInformada = senha.getText().toString();
 
-        // TODO maneira de validar os campos
+        /*// TODO maneira de validar os campos
         // TODO colocar email nos campos
 
         // TODO consultar banco de dados para verificar login
@@ -58,6 +58,21 @@ public class LoginActivity extends AppCompatActivity {
             toast.show();
             limparCampos();
         }
+*/
+        Usuario u= new Usuario(0,"","",usuarioInformado,senhaInformada);
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+        Log.d("backend","gson formated usuario:"+gson.toJson(u));
+
+
+        LoginClient client = new LoginClient(getApplicationContext(),this);
+        try {
+            client.postJson(new JSONObject(gson.toJson(u)));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     public void limparCampos() {
@@ -69,24 +84,23 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-
-        /*testando autenticacao*/
-        Usuario u = new Usuario(1,"","","icaromscastro@gmail.com","bubassaur");
-        GsonBuilder builder = new GsonBuilder();
-        Gson gson = builder.create();
-        Log.d("backend","gson formated usuario:"+gson.toJson(u));
+                super.onResume();
+    }
 
 
-        LoginClient client = new LoginClient(getApplicationContext());
-        try {
-            client.postJson(new JSONObject(gson.toJson(u)));
-        } catch (JSONException e) {
-            e.printStackTrace();
+    public void autenticar(Usuario u){
+        boolean exito = u.getId_usuario()!=0;
+
+        if (exito){
+            //TODO Adicionar aqui o objeto usuario na SharedPreferences
+            Toast.makeText(getApplicationContext(),"Login realizado com sucesso!",Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, DashboardActivity.class));
+        }else{
+            Toast.makeText(getApplicationContext(),"Usuário ou senha inválidos",Toast.LENGTH_SHORT).show();
         }
 
-
-
-
-        super.onResume();
     }
+
+
+
 }

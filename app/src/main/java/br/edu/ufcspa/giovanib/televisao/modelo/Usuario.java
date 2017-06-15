@@ -20,6 +20,9 @@ public class Usuario {
     }
 
 
+    public Usuario(){}
+
+
     public int getId_usuario() {
         return id_usuario;
     }

@@ -1,5 +1,6 @@
 package br.edu.ufcspa.giovanib.televisao.client;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 
@@ -13,6 +14,7 @@ import com.google.gson.Gson;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import br.edu.ufcspa.giovanib.televisao.controle.LoginActivity;
 import br.edu.ufcspa.giovanib.televisao.modelo.Usuario;
 
 
@@ -23,9 +25,10 @@ import br.edu.ufcspa.giovanib.televisao.modelo.Usuario;
 public class LoginClient extends HttpClient{
 
 
-
-    public LoginClient(Context context) {
+    LoginActivity activity;
+    public LoginClient(Context context, LoginActivity activity) {
         super(context);
+        this.activity=activity;
     }
 
 
@@ -47,6 +50,7 @@ public class LoginClient extends HttpClient{
                         //converte para usuario
                         Usuario u = gson.fromJson(response.toString(), Usuario.class);
                         Log.d("backend", "gson coverted to Usuario object"+u.toString());
+                        activity.autenticar(u);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
