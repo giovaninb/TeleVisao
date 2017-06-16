@@ -96,7 +96,8 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Login realizado com sucesso!",Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this, DashboardActivity.class));
         }else{
-            Toast.makeText(getApplicationContext(),"Usuário ou senha inválidos",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Usuário e/ou senha inválidos",Toast.LENGTH_SHORT).show();
+            limparCampos();
         }
 
     }
