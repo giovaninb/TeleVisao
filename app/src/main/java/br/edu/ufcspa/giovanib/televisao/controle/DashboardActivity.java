@@ -1,6 +1,8 @@
 package br.edu.ufcspa.giovanib.televisao.controle;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -31,7 +33,7 @@ import br.edu.ufcspa.giovanib.televisao.modelo.Atendimento;
 public class DashboardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, ListView.OnItemSelectedListener {
 
-
+    private static final String PREF_LOGIN = "LoginActivePreferences";
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
 
@@ -118,6 +120,9 @@ public class DashboardActivity extends AppCompatActivity
         }
         if (id == R.id.action_logoff) {
             startActivity(new Intent(this, LoginActivity.class));
+            SharedPreferences sp = getSharedPreferences(PREF_LOGIN, Context.MODE_PRIVATE);
+            SharedPreferences.Editor edit = sp.edit();
+            edit.clear().commit();
             finish();
             return true;
         }
@@ -142,6 +147,10 @@ public class DashboardActivity extends AppCompatActivity
         } else if (id == R.id.nav_logoff) {
 
             startActivity(new Intent(this, LoginActivity.class));
+            startActivity(new Intent(this, LoginActivity.class));
+            SharedPreferences sp = getSharedPreferences(PREF_LOGIN, Context.MODE_PRIVATE);
+            SharedPreferences.Editor edit = sp.edit();
+            edit.clear().commit();
             finish();
         } else if (id == R.id.nav_camera) {
 
@@ -170,7 +179,6 @@ public class DashboardActivity extends AppCompatActivity
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-
 
 
     //Tabbed Methods

@@ -1,6 +1,8 @@
 package br.edu.ufcspa.giovanib.televisao.controle;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +26,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText usuario;
     private EditText senha;
+    private static final String PREF_LOGIN = "LoginActivePreferences";
+    Usuario user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,42 +36,29 @@ public class LoginActivity extends AppCompatActivity {
 
         usuario = (EditText) findViewById(R.id.usuario);
         senha = (EditText) findViewById(R.id.senha);
+
+        SharedPreferences sp = getSharedPreferences(PREF_LOGIN, Context.MODE_PRIVATE);
+        String autenticado = sp.getString("estado", "");
+
+        if (autenticado.equals("conectado")) {
+            startActivity(new Intent(this, DashboardActivity.class));
+        }
+
     }
 
-    public void entrarOnClick(View v){
+    public void entrarOnClick(View v) {
         String usuarioInformado = usuario.getText().toString();
         String senhaInformada = senha.getText().toString();
 
-        /*// TODO maneira de validar os campos
-        // TODO colocar email nos campos
-
-        // TODO consultar banco de dados para verificar login
-        if ("admin".equals(usuarioInformado) && "admin".equals(senhaInformada))
-        {
-            // vai para outra activity
-            String mensagemSucesso = getString(R.string.sucesso_login);
-            Toast toast = Toast.makeText(this, mensagemSucesso, Toast.LENGTH_SHORT);
-            toast.show();
-            startActivity(new Intent(this, DashboardActivity.class));
-
-        }
-        else {
-            // mostra mensagem de erro
-            String mensagemErro = getString(R.string.erro_login);
-            Toast toast = Toast.makeText(this, mensagemErro, Toast.LENGTH_SHORT);
-            toast.show();
-            limparCampos();
-        }
-*/
-        Usuario u= new Usuario(0,"","",usuarioInformado,senhaInformada);
+        user = new Usuario(0, "", "", usuarioInformado, senhaInformada);
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
-        Log.d("backend","gson formated usuario:"+gson.toJson(u));
+        Log.d("backend", "gson formated usuario:" + gson.toJson(user));
 
 
-        LoginClient client = new LoginClient(getApplicationContext(),this);
+        LoginClient client = new LoginClient(getApplicationContext(), this);
         try {
-            client.postJson(new JSONObject(gson.toJson(u)));
+            client.postJson(new JSONObject(gson.toJson(user)));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -84,24 +75,43 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-                super.onResume();
+        super.onResume();
     }
 
 
-    public void autenticar(Usuario u){
-        boolean exito = u.getId_usuario()!=0;
+    public void autenticar(Usuario u) {
+        boolean exito = u.getId_usuario() != 0;
 
-        if (exito){
+        if (exito) {
             //TODO Adicionar aqui o objeto usuario na SharedPreferences
-            Toast.makeText(getApplicationContext(),"Login realizado com sucesso!",Toast.LENGTH_SHORT).show();
+
+            SharedPreferences sp = getSharedPreferences(PREF_LOGIN, Context.MODE_PRIVATE);
+            SharedPreferences.Editor edit = sp.edit();
+
+            edit.putInt("id", u.getId_usuario());
+            edit.putString("nome", u.getNome());
+            edit.putString("perfil", u.getPerfil());
+            edit.putString("email", u.getEmail());
+            edit.putString("senha", u.getSenha());
+            edit.putString("estado", "conectado");
+
+            user.setId_usuario(u.getId_usuario());
+            user.setNome(u.getNome());
+            user.setPerfil(u.getPerfil());
+            user.setEmail(u.getEmail());
+            user.setSenha(u.getSenha());
+
+
+            edit.commit();
+
+            Toast.makeText(getApplicationContext(), "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this, DashboardActivity.class));
-        }else{
-            Toast.makeText(getApplicationContext(),"Usuário e/ou senha inválidos",Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Usuário ou senha inválidos", Toast.LENGTH_SHORT).show();
             limparCampos();
         }
 
     }
-
 
 
 }
