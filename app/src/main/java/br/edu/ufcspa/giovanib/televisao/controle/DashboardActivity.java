@@ -1,6 +1,8 @@
 package br.edu.ufcspa.giovanib.televisao.controle;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -19,7 +21,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -31,14 +35,18 @@ import br.edu.ufcspa.giovanib.televisao.modelo.Atendimento;
 public class DashboardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, ListView.OnItemSelectedListener {
 
-
+    private static final String PREF_LOGIN = "LoginActivePreferences";
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
+    private LoginActivity loginActivity;
 
     // para criar a lista de Atendimento e Usuario
     public List<Atendimento> listaAtendimentos;
     public ListView listaDeAtenListView;
     public AdapterListaAtend adapter;
+
+    private TextView usuario;
+    private TextView perfil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +54,13 @@ public class DashboardActivity extends AppCompatActivity
         setContentView(R.layout.activity_dashboard);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        usuario = (TextView) findViewById(R.id.nav_nomeUsuario);
+        perfil = (TextView) findViewById(R.id.nav_perfilUsuario);
+
+        usuario.setText(loginActivity.getUser().getNome());
+        perfil.setText(loginActivity.getUser().getPerfil());
+
 
         // botao flutuante
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -118,6 +133,9 @@ public class DashboardActivity extends AppCompatActivity
         }
         if (id == R.id.action_logoff) {
             startActivity(new Intent(this, LoginActivity.class));
+            SharedPreferences sp = getSharedPreferences(PREF_LOGIN, Context.MODE_PRIVATE);
+            SharedPreferences.Editor edit = sp.edit();
+            edit.clear().commit();
             finish();
             return true;
         }
@@ -142,6 +160,10 @@ public class DashboardActivity extends AppCompatActivity
         } else if (id == R.id.nav_logoff) {
 
             startActivity(new Intent(this, LoginActivity.class));
+            startActivity(new Intent(this, LoginActivity.class));
+            SharedPreferences sp = getSharedPreferences(PREF_LOGIN, Context.MODE_PRIVATE);
+            SharedPreferences.Editor edit = sp.edit();
+            edit.clear().commit();
             finish();
         } else if (id == R.id.nav_camera) {
 
@@ -170,7 +192,6 @@ public class DashboardActivity extends AppCompatActivity
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-
 
 
     //Tabbed Methods

@@ -34,12 +34,6 @@
             android:text="@string/solicAt_hospital"
             android:textSize="20dp" />
 
-        <TextView
-            android:id="@+id/lista_atend_descricao"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/solicAt_descricao"
-            android:textSize="20dp" />
     </LinearLayout>
 
 </LinearLayout>

@@ -29,6 +29,7 @@
     <string name="tabbed_user">Usuários</string>
 
     <string name="solicAt_nomePac">Nome do Paciente</string>
+    <string name="solicAt_idPront">Nº Prontuário do Paciente</string>
     <string name="solicAt_Solic">Solicitante</string>
     <string name="solicAt_hospital">Hospital</string>
     <string name="solicAt_andar">Andar</string>
@@ -37,6 +38,7 @@
 
     <!--solicitar atendimento -->
     <string name="hint_nomePac">Digite o nome do paciente</string>
+    <string name="hint_idPront">Digite o nº do prontuário do paciente</string>
     <string name="hint_NProntPac">Digite o número do prontuário do paciente</string>
     <string name="hint_andar">Digite o andar do paciente</string>
     <string name="hint_leito">Digite o leito do paciente</string>

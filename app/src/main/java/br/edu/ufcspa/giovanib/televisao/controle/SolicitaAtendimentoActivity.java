@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,7 +14,6 @@ import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 import br.edu.ufcspa.giovanib.televisao.R;
 import br.edu.ufcspa.giovanib.televisao.modelo.Atendimento;
-import br.edu.ufcspa.giovanib.televisao.modelo.CadastroAtendimento;
 import br.edu.ufcspa.giovanib.televisao.modelo.EstadoAtendimento;
 
 import java.util.ArrayList;
@@ -38,14 +36,6 @@ public class SolicitaAtendimentoActivity extends AppCompatActivity implements On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_solicita_atendimento);
         //getActionBar().setDisplayHomeAsUpEnabled(true);
-
-
-
-        nomePac = (EditText) findViewById(R.id.solicNomePac);
-        hospital = (Spinner) findViewById(R.id.solicHospital);
-        andar = (EditText) findViewById(R.id.solicAndar);
-        leito = (EditText) findViewById(R.id.solicLeito);
-        descricao = (EditText) findViewById(R.id.solicDescricao);
 
 
         // Elemento do Spinner
@@ -82,9 +72,8 @@ public class SolicitaAtendimentoActivity extends AppCompatActivity implements On
         // On selecting a spinner item
         String item = parent.getItemAtPosition(position).toString();
 
-
         // Showing selected spinner item
-         Toast.makeText(parent.getContext(), "Selecionado: " + item, Toast.LENGTH_LONG).show();
+        // Toast.makeText(parent.getContext(), "Selecionado: " + item, Toast.LENGTH_LONG).show();
     }
 
     public void onNothingSelected(AdapterView<?> arg0) {
@@ -94,19 +83,11 @@ public class SolicitaAtendimentoActivity extends AppCompatActivity implements On
     // acao do botao solicitar atendimento
     public void inserirOnClick(View view) {
 
-
-
-        CadastroAtendimento atendimento = new CadastroAtendimento(2,nomePac.getText().toString(),"12121",
-                spinner.getSelectedItem().toString(),
-                andar.getText().toString(),leito.getText().toString(),
-                descricao.getText().toString());
-
-        Log.d("atendimento","atendimento: "+atendimento.toString());
-
-
-
-
-
+//        nomePac = (EditText) findViewById(R.id.solicNomePac);
+//        hospital = (Spinner) findViewById(R.id.solicHospital);
+//        andar = (EditText) findViewById(R.id.solicAndar);
+//        leito = (EditText) findViewById(R.id.solicLeito);
+//        descricao = (EditText) findViewById(R.id.solicDescricao);
 
 //        Atendimento atendimento = new Atendimento(nomePac.getText().toString(),hospital.getSelectedItem().toString(),
 //                andar.getText().toString(),leito.getText().toString(),descricao.getText().toString(),
@@ -121,11 +102,6 @@ public class SolicitaAtendimentoActivity extends AppCompatActivity implements On
 //        AdapterListaAtend adapter = new AdapterListaAtend(listaAtendimentos, this);
 //
 //        listaDeAtenListView.setAdapter(adapter);
-
-
-
-
-
 
 
         Toast.makeText(this, "Solicitação realizada com sucesso!", Toast.LENGTH_LONG).show();

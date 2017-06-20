@@ -40,13 +40,21 @@
                 android:layout_marginRight="10dp"
                 android:hint="@string/hint_nomePac"
                 android:inputType="text" />
-            <EditText
-                android:id="@+id/solicNProntPac"
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:hint="@string/hint_NProntPac"
+                android:text="@string/solicAt_idPront" />
+
+            <EditText
+                android:id="@+id/solicIdPront"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:hint="@string/hint_idPront"
                 android:inputType="text" />
 
             <TextView
