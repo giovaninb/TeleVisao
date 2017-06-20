@@ -51,7 +51,6 @@ public class AdapterListaAtend extends BaseAdapter {
         ImageView imagem = (ImageView) view.findViewById(R.id.lista_atend_imagem);
         TextView nome = (TextView) view.findViewById(R.id.lista_atend_nomePac);
         TextView hospital = (TextView) view.findViewById(R.id.lista_atend_hospital);
-        TextView descricao = (TextView) view.findViewById(R.id.lista_atend_descricao);
 
         EstadoAtendimento estadoAtendimento = atendimento.getEstadoAtendimento();
 
@@ -65,7 +64,6 @@ public class AdapterListaAtend extends BaseAdapter {
         //populando as Views
         nome.setText(atendimento.getNomePaciente());
         hospital.setText(atendimento.getHospital());
-        descricao.setText(atendimento.getDescricao());
 
         return view;
     }
