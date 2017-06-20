@@ -21,7 +21,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -36,11 +38,15 @@ public class DashboardActivity extends AppCompatActivity
     private static final String PREF_LOGIN = "LoginActivePreferences";
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
+    private LoginActivity loginActivity;
 
     // para criar a lista de Atendimento e Usuario
     public List<Atendimento> listaAtendimentos;
     public ListView listaDeAtenListView;
     public AdapterListaAtend adapter;
+
+    private TextView usuario;
+    private TextView perfil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +54,13 @@ public class DashboardActivity extends AppCompatActivity
         setContentView(R.layout.activity_dashboard);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        usuario = (TextView) findViewById(R.id.nav_nomeUsuario);
+        perfil = (TextView) findViewById(R.id.nav_perfilUsuario);
+
+        usuario.setText(loginActivity.getUser().getNome());
+        perfil.setText(loginActivity.getUser().getPerfil());
+
 
         // botao flutuante
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
