@@ -58,7 +58,7 @@ public class AdapterListaAtend extends BaseAdapter {
         if (estadoAtendimento.equals(EstadoAtendimento.DISPONIVEL)) {
             imagem.setImageResource(R.mipmap.ic_atend_disp);
         } else if (estadoAtendimento.equals(EstadoAtendimento.FAZENDO)) {
-            //imagem.setImageResource(R.mipmap.ic_atend_ocupado);
+            imagem.setImageResource(R.mipmap.ic_atend_ocupado);
         } else if (estadoAtendimento.equals(EstadoAtendimento.FINALIZADO)) {
             imagem.setImageResource(R.mipmap.ic_atend_concluido);
         }
