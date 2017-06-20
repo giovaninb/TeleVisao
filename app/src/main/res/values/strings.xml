@@ -35,8 +35,9 @@
     <string name="solicAt_leito">Leito</string>
     <string name="solicAt_descricao">Resumo/História - Clínica</string>
 
-    <!--Dicas-->
+    <!--solicitar atendimento -->
     <string name="hint_nomePac">Digite o nome do paciente</string>
+    <string name="hint_NProntPac">Digite o número do prontuário do paciente</string>
     <string name="hint_andar">Digite o andar do paciente</string>
     <string name="hint_leito">Digite o leito do paciente</string>
     <string name="hint_descricao">Digite a Resumo/História - Clínica do paciente</string>

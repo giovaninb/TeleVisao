@@ -29,6 +29,7 @@
         android:id="@+id/usuario"
         android:inputType="text"
         android:hint="seu_email@provador.com"
+        android:text="admin@admin.com"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_width="match_parent"
@@ -46,6 +47,7 @@
     <EditText
         android:id="@+id/senha"
         android:inputType="textPassword"
+        android:text="admin"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_width="match_parent"
