@@ -132,12 +132,12 @@ public class DashboardActivity extends AppCompatActivity
         Gson gson = builder.create();
         Log.d("backend", "gson formated usuario:" + gson.toJson(request));
 
-        try {
-            // TODO VERIFICAR POST
+//        try {
+//            // TODO VERIFICAR POST
 //            post(gson.toJson(request));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
 
 
 
@@ -307,7 +307,7 @@ public class DashboardActivity extends AppCompatActivity
 
     //ListView
     @Override
-    public void onItemSelected(AdapterListaAtend parent, View view, int position, long id) {
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         //Pega o item que foi selecionado.
 //        ItemListView item = adapterListView.getItem(position);
 //        //Demostração
@@ -315,7 +315,7 @@ public class DashboardActivity extends AppCompatActivity
     }
 
     @Override
-    public void onNothingSelected(AdapterListaAtend parent) {
+    public void onNothingSelected(AdapterView<?> parent) {
 
     }
 
