@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -38,7 +39,6 @@ public class DashboardActivity extends AppCompatActivity
     private static final String PREF_LOGIN = "LoginActivePreferences";
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
-    private LoginActivity loginActivity;
 
     // para criar a lista de Atendimento e Usuario
     public List<Atendimento> listaAtendimentos;
@@ -55,11 +55,11 @@ public class DashboardActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        usuario = (TextView) findViewById(R.id.nav_nomeUsuario);
-        perfil = (TextView) findViewById(R.id.nav_perfilUsuario);
 
-        usuario.setText(loginActivity.getUser().getNome());
-        perfil.setText(loginActivity.getUser().getPerfil());
+
+
+
+
 
 
         // botao flutuante
@@ -74,6 +74,8 @@ public class DashboardActivity extends AppCompatActivity
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
+
+
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
@@ -92,6 +94,19 @@ public class DashboardActivity extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View header=navigationView.getHeaderView(0);
+
+
+
+        usuario = (TextView) header.findViewById(R.id.nav_nomeUsuario);
+        perfil = (TextView) header.findViewById(R.id.nav_perfilUsuario);
+
+
+        SingletonSession session = SingletonSession.getInstance();
+        Log.d("singleton","sharedPref on singleton:"+session.toString());
+        usuario.setText(session.nomeUsuario);
+        perfil.setText(session.perfil);
+
         navigationView.setNavigationItemSelectedListener(this);
 
 

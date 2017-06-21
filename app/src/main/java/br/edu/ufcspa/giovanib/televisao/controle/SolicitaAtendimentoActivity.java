@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,8 +13,17 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import br.edu.ufcspa.giovanib.televisao.R;
+import br.edu.ufcspa.giovanib.televisao.client.CadastrarAtendimentoClient;
 import br.edu.ufcspa.giovanib.televisao.modelo.Atendimento;
+import br.edu.ufcspa.giovanib.televisao.modelo.CadastroAtendimento;
 import br.edu.ufcspa.giovanib.televisao.modelo.EstadoAtendimento;
 
 import java.util.ArrayList;
@@ -28,6 +38,7 @@ public class SolicitaAtendimentoActivity extends AppCompatActivity implements On
     private EditText andar;
     private EditText leito;
     private EditText descricao;
+    private EditText idProntuario;
     private Spinner spinner;
 
 
@@ -83,11 +94,13 @@ public class SolicitaAtendimentoActivity extends AppCompatActivity implements On
     // acao do botao solicitar atendimento
     public void inserirOnClick(View view) {
 
-//        nomePac = (EditText) findViewById(R.id.solicNomePac);
-//        hospital = (Spinner) findViewById(R.id.solicHospital);
-//        andar = (EditText) findViewById(R.id.solicAndar);
-//        leito = (EditText) findViewById(R.id.solicLeito);
-//        descricao = (EditText) findViewById(R.id.solicDescricao);
+        nomePac = (EditText) findViewById(R.id.solicNomePac);
+        hospital = (Spinner) findViewById(R.id.solicHospital);
+        andar = (EditText) findViewById(R.id.solicAndar);
+        leito = (EditText) findViewById(R.id.solicLeito);
+        descricao = (EditText) findViewById(R.id.solicDescricao);
+        idProntuario=(EditText) findViewById(R.id.solicIdPront);
+
 
 //        Atendimento atendimento = new Atendimento(nomePac.getText().toString(),hospital.getSelectedItem().toString(),
 //                andar.getText().toString(),leito.getText().toString(),descricao.getText().toString(),
@@ -102,6 +115,34 @@ public class SolicitaAtendimentoActivity extends AppCompatActivity implements On
 //        AdapterListaAtend adapter = new AdapterListaAtend(listaAtendimentos, this);
 //
 //        listaDeAtenListView.setAdapter(adapter);
+
+
+
+        SingletonSession singleton = SingletonSession.getInstance();
+
+
+        CadastroAtendimento atendimento = new CadastroAtendimento(singleton.id_usuario,nomePac.getText().toString(),idProntuario.getText().toString(),
+                spinner.getSelectedItem().toString(),
+                andar.getText().toString(),leito.getText().toString(),
+                descricao.getText().toString());
+
+
+        Log.d("atendimento","atendimento: "+atendimento.toString());
+
+
+
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+        Log.d("backend", "gson formated usuario:" + gson.toJson(atendimento));
+
+
+        CadastrarAtendimentoClient client = new CadastrarAtendimentoClient(this);
+        try {
+            client.postJson(new JSONObject(gson.toJson(atendimento)));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
 
 
         Toast.makeText(this, "Solicitação realizada com sucesso!", Toast.LENGTH_LONG).show();

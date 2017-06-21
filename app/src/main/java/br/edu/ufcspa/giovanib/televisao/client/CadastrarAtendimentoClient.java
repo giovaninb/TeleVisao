@@ -34,6 +34,7 @@ public class CadastrarAtendimentoClient extends HttpClient {
                         Log.e("Erro", "JSON Post erro");
                     } else {
                         Log.d("backend", "atendimento cadastrado com sucesso");
+                        Log.d("backend", "response from web service:" + response.toString());
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

@@ -41,6 +41,11 @@ public class LoginActivity extends AppCompatActivity {
         String autenticado = sp.getString("estado", "");
 
         if (autenticado.equals("conectado")) {
+            SingletonSession singleton = SingletonSession.getInstance();
+
+            singleton.id_usuario=sp.getInt("id",0);
+            singleton.perfil=sp.getString("perfil","Z");
+            singleton.nomeUsuario=sp.getString("nome","blastoise");
             startActivity(new Intent(this, DashboardActivity.class));
         }
 
@@ -101,6 +106,10 @@ public class LoginActivity extends AppCompatActivity {
             user.setEmail(u.getEmail());
             user.setSenha(u.getSenha());
 
+            SingletonSession singleton = SingletonSession.getInstance();
+            singleton.id_usuario=u.getId_usuario();
+            singleton.nomeUsuario=u.getNome();
+            singleton.perfil=u.getPerfil();
 
             edit.commit();
 
@@ -113,11 +122,4 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public Usuario getUser() {
-        return user;
-    }
-
-    public void setUser(Usuario user) {
-        this.user = user;
-    }
 }

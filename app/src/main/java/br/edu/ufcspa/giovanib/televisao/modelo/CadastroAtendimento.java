@@ -21,7 +21,7 @@ import org.json.JSONObject;
 
 public class CadastroAtendimento {
 
-    private int id_usuario_solicitante;
+    private int id_solicitante;
     private String nome_paciente;
     private String n_prontuario;
     private String hospital;
@@ -29,8 +29,8 @@ public class CadastroAtendimento {
     private String leito;
     private String resumo_clinico;
 
-    public CadastroAtendimento(int id_usuario_solicitante, String nome_paciente, String n_prontuario, String hospital, String andar, String leito, String resumo_clinico) {
-        this.id_usuario_solicitante = id_usuario_solicitante;
+    public CadastroAtendimento(int id_solicitante, String nome_paciente, String n_prontuario, String hospital, String andar, String leito, String resumo_clinico) {
+        this.id_solicitante = id_solicitante;
         this.nome_paciente = nome_paciente;
         this.n_prontuario = n_prontuario;
         this.hospital = hospital;
@@ -41,11 +41,11 @@ public class CadastroAtendimento {
 
 
     public int getId_usuario_solicitante() {
-        return id_usuario_solicitante;
+        return id_solicitante;
     }
 
     public void setId_usuario_solicitante(int id_usuario_solicitante) {
-        this.id_usuario_solicitante = id_usuario_solicitante;
+        this.id_solicitante = id_usuario_solicitante;
     }
 
     public String getNome_paciente() {
@@ -100,7 +100,7 @@ public class CadastroAtendimento {
     @Override
     public String toString() {
         return "CadastroAtendimento{" +
-                "id_usuario_solicitante=" + id_usuario_solicitante +
+                "id_usuario_solicitante=" + id_solicitante +
                 ", nome_paciente='" + nome_paciente + '\'' +
                 ", n_prontuario='" + n_prontuario + '\'' +
                 ", hospital='" + hospital + '\'' +
