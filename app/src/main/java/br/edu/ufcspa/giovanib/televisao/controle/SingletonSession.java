@@ -1,5 +1,9 @@
 package br.edu.ufcspa.giovanib.televisao.controle;
 
+import java.util.List;
+
+import br.edu.ufcspa.giovanib.televisao.modelo.ListarAtendimento;
+
 /**
  * Created by icaromsc on 19/06/2017.
  */
@@ -19,6 +23,7 @@ public class SingletonSession {
     public  int id_usuario;
     public  String nomeUsuario;
     public  String perfil;
+    public  List<ListarAtendimento> atendimentos;
 
 
     private SingletonSession() {
