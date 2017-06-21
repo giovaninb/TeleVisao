@@ -27,11 +27,29 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.ufcspa.giovanib.televisao.R;
+import br.edu.ufcspa.giovanib.televisao.client.HttpClient;
+import br.edu.ufcspa.giovanib.televisao.client.ListarAtendimentosClient;
 import br.edu.ufcspa.giovanib.televisao.modelo.Atendimento;
+import br.edu.ufcspa.giovanib.televisao.modelo.ListarAtendimento;
+import br.edu.ufcspa.giovanib.televisao.modelo.ListarAtendimentosRequest;
+
+import static android.content.ContentValues.TAG;
 
 public class DashboardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, ListView.OnItemSelectedListener {
@@ -42,6 +60,8 @@ public class DashboardActivity extends AppCompatActivity
 
     // para criar a lista de Atendimento e Usuario
     public List<Atendimento> listaAtendimentos;
+
+    ArrayList<ListarAtendimento> atendimentos = new ArrayList<>();
     public ListView listaDeAtenListView;
     public AdapterListaAtend adapter;
 
@@ -55,10 +75,7 @@ public class DashboardActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-
-
-
+        atendimentos = new ArrayList<>();
 
 
 
@@ -109,6 +126,20 @@ public class DashboardActivity extends AppCompatActivity
 
         navigationView.setNavigationItemSelectedListener(this);
 
+        ListarAtendimentosClient client = new ListarAtendimentosClient(this);
+        ListarAtendimentosRequest request = new ListarAtendimentosRequest();
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+        Log.d("backend", "gson formated usuario:" + gson.toJson(request));
+
+        try {
+            // TODO VERIFICAR POST
+//            post(gson.toJson(request));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
 
     }
 
@@ -158,6 +189,86 @@ public class DashboardActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+
+
+    /*
+    *
+    * COMUNICAO COM WEB SERVICE
+    *
+    *
+    *
+    * */
+    public void post(JSONObject json) {
+        JsonArrayRequest req = new JsonArrayRequest(HttpClient.URL + "listar_atendimentos.php",
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        //Log.d(TAG, response.toString());
+                        Log.d("backend","web service response:"+response.toString());
+                        try {
+                            // Parsing json array response
+                            // loop through each json object
+                            //jsonResponse = "";
+                            Gson gson = new Gson();
+
+                            //converte para usuario
+
+
+                            for (int i = 0; i < response.length(); i++) {
+
+                                // TA AI O MALUCO QUE A GENTE QUER!!!
+                                JSONObject person = (JSONObject) response
+                                        .get(i);
+                                ListarAtendimento l = gson.fromJson(person.toString(), ListarAtendimento.class);
+                                atendimentos.add(l);
+
+
+                                //Log.d("backend", "gson coverted to ListarAtendimento object:"+l.toString());
+                                Log.d("backend","json obj:"+person.toString());
+
+                            }
+
+                            /*
+                            * CHAMAR METODO PARA POPULAR LISTVIEW
+                            *
+                            * */
+                            popularListView();
+
+
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                           /* Toast.makeText(getApplicationContext(),
+                                    "Error: " + e.getMessage(),
+                                    Toast.LENGTH_LONG).show();*/
+                        }
+
+                       /* hidepDialog();*/
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d(TAG, "Error: " + error.getMessage());
+               /* Toast.makeText(getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_SHORT).show();
+                hidepDialog();*/
+            }
+        });
+        com.android.volley.RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(req);
+    }
+
+
+
+    public void popularListView(){
+        AdapterListaAtend adapterListaAtend = new AdapterListaAtend(atendimentos,this);
+        listaDeAtenListView.setAdapter(adapterListaAtend);
+
+    }
+
+
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -196,7 +307,7 @@ public class DashboardActivity extends AppCompatActivity
 
     //ListView
     @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+    public void onItemSelected(AdapterListaAtend parent, View view, int position, long id) {
         //Pega o item que foi selecionado.
 //        ItemListView item = adapterListView.getItem(position);
 //        //Demostração
@@ -204,7 +315,7 @@ public class DashboardActivity extends AppCompatActivity
     }
 
     @Override
-    public void onNothingSelected(AdapterView<?> parent) {
+    public void onNothingSelected(AdapterListaAtend parent) {
 
     }
 

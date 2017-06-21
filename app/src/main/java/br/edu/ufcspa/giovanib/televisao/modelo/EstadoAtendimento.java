@@ -7,18 +7,21 @@ package br.edu.ufcspa.giovanib.televisao.modelo;
 public enum EstadoAtendimento {
     DISPONIVEL{
         @Override
+        // Disponivel
         public String toString() {
-            return "Disponível";
+            return "P";
         }
     }, FAZENDO{
         @Override
+        // Em atendimento
         public String toString() {
-            return "Fazendo";
+            return "A";
         }
     }, FINALIZADO{
         @Override
+        // Finalizado
         public String toString() {
-            return "Finalizado";
+            return "F";
         }
     };
 }

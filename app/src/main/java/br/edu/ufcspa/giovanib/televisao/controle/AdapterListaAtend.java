@@ -12,6 +12,7 @@ import java.util.List;
 import br.edu.ufcspa.giovanib.televisao.R;
 import br.edu.ufcspa.giovanib.televisao.modelo.Atendimento;
 import br.edu.ufcspa.giovanib.televisao.modelo.EstadoAtendimento;
+import br.edu.ufcspa.giovanib.televisao.modelo.ListarAtendimento;
 
 /**
  * Created by gnbettoni on 29/05/17.
@@ -19,10 +20,10 @@ import br.edu.ufcspa.giovanib.televisao.modelo.EstadoAtendimento;
 
 public class AdapterListaAtend extends BaseAdapter {
 
-    private final List<Atendimento> atendimentos;
+    private final List<ListarAtendimento> atendimentos;
     private final Activity act;
 
-    public AdapterListaAtend(List<Atendimento> atendimentos, Activity act) {
+    public AdapterListaAtend(List<ListarAtendimento> atendimentos, Activity act) {
         this.atendimentos = atendimentos;
         this.act = act;
     }
@@ -45,14 +46,14 @@ public class AdapterListaAtend extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = act.getLayoutInflater().inflate(R.layout.item_atend_listview, parent, false);
-        Atendimento atendimento = atendimentos.get(position);
+        ListarAtendimento atendimento = atendimentos.get(position);
 
         //pegando as referencias da view
         ImageView imagem = (ImageView) view.findViewById(R.id.lista_atend_imagem);
         TextView nome = (TextView) view.findViewById(R.id.lista_atend_nomePac);
         TextView hospital = (TextView) view.findViewById(R.id.lista_atend_hospital);
 
-        EstadoAtendimento estadoAtendimento = atendimento.getEstadoAtendimento();
+        EstadoAtendimento estadoAtendimento = EstadoAtendimento.DISPONIVEL;
 
         if (estadoAtendimento.equals(EstadoAtendimento.DISPONIVEL)) {
             imagem.setImageResource(R.mipmap.ic_atend_disp);
@@ -62,7 +63,7 @@ public class AdapterListaAtend extends BaseAdapter {
             imagem.setImageResource(R.mipmap.ic_atend_concluido);
         }
         //populando as Views
-        nome.setText(atendimento.getNomePaciente());
+        nome.setText(atendimento.getNome_paciente());
         hospital.setText(atendimento.getHospital());
 
         return view;

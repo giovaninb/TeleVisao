@@ -8,7 +8,7 @@ import android.content.Context;
 
 public class HttpClient {
     protected Context context;
-    protected static final String URL="http://angelo.inf.ufrgs.br/televisao/";
+    public static final String URL="http://angelo.inf.ufrgs.br/televisao/";
 
     public HttpClient(Context context){
         this.context=context;

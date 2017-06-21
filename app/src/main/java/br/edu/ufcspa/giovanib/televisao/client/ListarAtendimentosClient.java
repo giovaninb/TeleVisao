@@ -32,39 +32,6 @@ public class ListarAtendimentosClient extends HttpClient {
         super(context);
     }
 
-    /*public void postJson(JSONObject jsonBody){
-        final JsonArrayRequest jsonObjectRequest = new JsonArrayRequest(Request.Method.POST, URL + "listar_atendimentos.php", jsonBody, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JsonArrayRequest response) {
-                try {
-
-                        Log.d("Response JSON", "Login autenticado");
-                        Log.d("Response JSON", "JSON Post com sucesso:"+response.toString());
-
-
-                        *//*Gson gson = new Gson();
-
-                        //converte para usuario
-                        Usuario u = gson.fromJson(response.toString(), Usuario.class);
-                        Log.d("backend", "gson coverted to Usuario object"+u.toString());
-                        activity.autenticar(u);*//*
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError volleyError) {
-                Log.e("erro:",volleyError.toString());
-                volleyError.printStackTrace();
-
-            }
-        });
-        com.android.volley.RequestQueue queue = Volley.newRequestQueue(context);
-        queue.add(jsonObjectRequest);
-    }*/
-
     public void post(JSONObject json) {
         JsonArrayRequest req = new JsonArrayRequest(URL + "listar_atendimentos.php",
                 new Response.Listener<JSONArray>() {
