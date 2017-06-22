@@ -53,6 +53,7 @@ public class AdapterListaAtend extends BaseAdapter {
         TextView nome = (TextView) view.findViewById(R.id.lista_atend_nomePac);
         TextView hospital = (TextView) view.findViewById(R.id.lista_atend_hospital);
 
+        // TODO Corrigir estado de Atendimento
         EstadoAtendimento estadoAtendimento = EstadoAtendimento.DISPONIVEL;
 
         if (estadoAtendimento.equals(EstadoAtendimento.DISPONIVEL)) {

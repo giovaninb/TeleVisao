@@ -62,8 +62,8 @@ public class DashboardActivity extends AppCompatActivity
     public List<Atendimento> listaAtendimentos;
 
     ArrayList<ListarAtendimento> atendimentos = new ArrayList<>();
-    public ListView listaDeAtenListView;
-    public AdapterListaAtend adapter;
+    public static ListView listaDeAtenListView;
+    public static AdapterListaAtend adapter;
 
     private TextView usuario;
     private TextView perfil;
@@ -354,11 +354,11 @@ public class DashboardActivity extends AppCompatActivity
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_tabbed, container, false);
             // TODO LISTVIEW
-//            listaDeAtenListView = (ListView) rootView.findViewById(R.id.lista);
-//            listaDeAtendListView.setAdapter(adapter);
+            listaDeAtenListView = (ListView) rootView.findViewById(R.id.lista);
+            listaDeAtenListView.setAdapter(adapter);
 
-            TextView teste = (TextView) rootView.findViewById(R.id.teste);
-            teste.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+//            TextView teste = (TextView) rootView.findViewById(R.id.teste);
+//            teste.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             return rootView;
         }
     }
