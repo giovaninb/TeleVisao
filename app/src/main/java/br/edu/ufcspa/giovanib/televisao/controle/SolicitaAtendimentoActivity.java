@@ -152,6 +152,7 @@ public class SolicitaAtendimentoActivity extends AppCompatActivity implements On
 
     public void limparCampos() {
         nomePac.setText("");
+        idProntuario.setText("");
         hospital.setSelection(0, true);
         andar.setText("");
         leito.setText("");

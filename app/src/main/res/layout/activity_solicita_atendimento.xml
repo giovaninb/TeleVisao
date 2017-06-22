@@ -55,7 +55,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:hint="@string/hint_idPront"
-                android:inputType="text" />
+                android:inputType="number" />
 
             <TextView
                 android:layout_width="match_parent"

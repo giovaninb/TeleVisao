@@ -46,4 +46,7 @@
     <string name="hint_novaSenha">Digite uma nova Senha</string>
 
 
+    <string name="section_format">AGORA VAI: %1$d</string>
+
+
 </resources>

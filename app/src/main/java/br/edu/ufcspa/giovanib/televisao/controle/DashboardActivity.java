@@ -78,21 +78,8 @@ public class DashboardActivity extends AppCompatActivity
         atendimentos = new ArrayList<>();
 
 
-
-        // botao flutuante
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-
-
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
@@ -101,7 +88,33 @@ public class DashboardActivity extends AppCompatActivity
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+        //Implementing tab selected listener over tablayout
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                //setting current selected item over viewpager
+                mViewPager.setCurrentItem(tab.getPosition());
+                switch (tab.getPosition()) {
+                    case 0:
+                        Log.e("TAG","Atendimentos");
 
+                        break;
+                    case 1:
+                        Log.e("TAG","Usuários");
+                        break;
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
 
         // Navigation Menu
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -112,19 +125,15 @@ public class DashboardActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         View header=navigationView.getHeaderView(0);
-
-
+        navigationView.setNavigationItemSelectedListener(this);
 
         usuario = (TextView) header.findViewById(R.id.nav_nomeUsuario);
         perfil = (TextView) header.findViewById(R.id.nav_perfilUsuario);
-
 
         SingletonSession session = SingletonSession.getInstance();
         Log.d("singleton","sharedPref on singleton:"+session.toString());
         usuario.setText(session.nomeUsuario);
         perfil.setText(session.perfil);
-
-        navigationView.setNavigationItemSelectedListener(this);
 
         ListarAtendimentosClient client = new ListarAtendimentosClient(this);
         ListarAtendimentosRequest request = new ListarAtendimentosRequest();
@@ -132,13 +141,8 @@ public class DashboardActivity extends AppCompatActivity
         Gson gson = builder.create();
         Log.d("backend", "gson formated usuario:" + gson.toJson(request));
 
-//        try {
-//            // TODO VERIFICAR POST
-//            post(gson.toJson(request));
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-
+        // TODO VERIFICAR POST
+        post(null);
 
 
     }
@@ -319,7 +323,6 @@ public class DashboardActivity extends AppCompatActivity
 
     }
 
-
     //Tabbed Methods
 
     /**
@@ -331,7 +334,6 @@ public class DashboardActivity extends AppCompatActivity
          * fragment.
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
-
         public PlaceholderFragment() {
         }
 
@@ -351,6 +353,12 @@ public class DashboardActivity extends AppCompatActivity
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_tabbed, container, false);
+            // TODO LISTVIEW
+//            listaDeAtenListView = (ListView) rootView.findViewById(R.id.lista);
+//            listaDeAtendListView.setAdapter(adapter);
+
+            TextView teste = (TextView) rootView.findViewById(R.id.teste);
+            teste.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             return rootView;
         }
     }
