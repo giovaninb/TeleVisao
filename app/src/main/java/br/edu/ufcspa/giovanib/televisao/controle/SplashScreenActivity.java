@@ -24,7 +24,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        ListarAtendimentosClient client = new ListarAtendimentosClient(this);
+        /*ListarAtendimentosClient client = new ListarAtendimentosClient(this);
         ListarAtendimentosRequest request = new ListarAtendimentosRequest();
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
@@ -34,7 +34,7 @@ public class SplashScreenActivity extends AppCompatActivity {
             client.post(new JSONObject(gson.toJson(request)));
         } catch (JSONException e) {
             e.printStackTrace();
-        }
+        }*/
 
         Handler handle = new Handler();
         handle.postDelayed(new Runnable() {

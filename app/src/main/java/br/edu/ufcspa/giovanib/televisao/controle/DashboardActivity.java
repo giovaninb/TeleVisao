@@ -177,6 +177,7 @@ public class DashboardActivity extends AppCompatActivity
             toast.show();
             return true;
         }
+
         if (id == R.id.action_about) {
             startActivity(new Intent(this, SobreActivity.class));
             return true;
@@ -301,6 +302,8 @@ public class DashboardActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_password) {
             startActivity(new Intent(this, ChangePasswdActivity.class));
+        } else if(id== R.id.nav_historico){
+            startActivity(new Intent(this, ImageGalleryDemoActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
