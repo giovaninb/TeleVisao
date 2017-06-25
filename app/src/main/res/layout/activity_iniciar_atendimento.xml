@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.edu.ufcspa.giovanib.televisao.controle.IniciarAtendimentoActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textInicioAtendimento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="@string/inicio_atend"
+                android:textAlignment="center"
+                android:textSize="24sp" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:shrinkColumns="*"  android:stretchColumns="*">
+
+
+                <!-- Linha 2 com duas colunas -->
+                <TableRow
+                    android:layout_height="wrap_content"
+                    android:layout_width="fill_parent"
+                    android:layout_margin="10dp"
+                    android:layout_gravity="center_horizontal">
+
+                    <LinearLayout
+                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal" >
+
+                        <TextView
+                            android:id="@+id/tx_olhoEsquerdo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:layout_gravity="center"
+                            android:text="@string/olhoEsquerdo" />
+
+                        <ImageView
+                            android:id="@+id/img_olhoEsquero"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            app:srcCompat="@mipmap/ic_logo" />
+
+                        <Button
+                            android:id="@+id/btn_capturarOE"
+                            android:layout_width="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:onClick="capturarOnClick"
+                            android:background="@color/colorPrimary"
+                            android:text="@string/capturar_imagem"
+                            android:layout_height="wrap_content" />
+
+                        <Button
+                            android:id="@+id/btn_anexarOE"
+                            android:layout_width="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:onClick="anexarOnClick"
+                            android:background="@color/colorPrimary"
+                            android:text="@string/anexar_imagem"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal" >
+
+                        <TextView
+                            android:id="@+id/tx_olhoDireito"
+                            android:layout_width="match_parent"
+                            android:textAlignment="center"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/olhoDireito" />
+
+                        <ImageView
+                            android:id="@+id/img_olhoDireito"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            app:srcCompat="@mipmap/ic_logo" />
+
+                        <Button
+                            android:id="@+id/btn_capturarOD"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/colorPrimary"
+                            android:onClick="capturarOnClick"
+                            android:text="@string/capturar_imagem" />
+
+                        <Button
+                            android:id="@+id/btn_anexarOD"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/colorPrimary"
+                            android:onClick="anexarOnClick"
+                            android:text="@string/anexar_imagem" />
+
+                    </LinearLayout>
+
+                </TableRow>
+            </TableLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textAlignment="center"
+                android:text="@string/atend_hda" />
+
+            <EditText
+                android:id="@+id/atendDescricao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:isScrollContainer="true"
+                android:inputType="textMultiLine" />
+
+            <Button
+                android:id="@+id/buttonSolicitaAtend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_margin="10dp"
+                android:background="@color/colorPrimary"
+                android:onClick="finalizarOnClick"
+                android:text="@string/action_finaliza_atendimento" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="25dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

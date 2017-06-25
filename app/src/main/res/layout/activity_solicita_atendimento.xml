@@ -5,12 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:fitsSystemWindows="true"
     tools:context="br.edu.ufcspa.giovanib.televisao.controle.SolicitaAtendimentoActivity">
-
-    <!--<include-->
-        <!--layout="@layout/app_bar_solicita_atendimento"-->
-        <!--android:layout_width="409dp"-->
-        <!--android:layout_height="113dp" />-->
 
     <ScrollView
         android:layout_width="match_parent"

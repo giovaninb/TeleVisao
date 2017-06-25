@@ -42,7 +42,6 @@ public class LoginActivity extends AppCompatActivity {
 
         if (autenticado.equals("conectado")) {
             SingletonSession singleton = SingletonSession.getInstance();
-
             singleton.id_usuario=sp.getInt("id",0);
             singleton.perfil=sp.getString("perfil","Z");
             singleton.nomeUsuario=sp.getString("nome","blastoise");

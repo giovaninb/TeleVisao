@@ -58,9 +58,6 @@ public class DashboardActivity extends AppCompatActivity
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
 
-    // para criar a lista de Atendimento e Usuario
-    public List<Atendimento> listaAtendimentos;
-
     ArrayList<ListarAtendimento> atendimentos = new ArrayList<>();
     public static ListView listaDeAtenListView;
     public static AdapterListaAtend adapter;
@@ -281,25 +278,13 @@ public class DashboardActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_solicita_atendimento) {
-
             startActivity(new Intent(this, SolicitaAtendimentoActivity.class));
-
-
         } else if (id == R.id.nav_about) {
             startActivity(new Intent(this, SobreActivity.class));
-
         } else if (id == R.id.nav_logoff) {
-
-            startActivity(new Intent(this, LoginActivity.class));
-            startActivity(new Intent(this, LoginActivity.class));
-            SharedPreferences sp = getSharedPreferences(PREF_LOGIN, Context.MODE_PRIVATE);
-            SharedPreferences.Editor edit = sp.edit();
-            edit.clear().commit();
             finish();
         } else if (id == R.id.nav_camera) {
-
             startActivity(new Intent(this, MyCameraActivity.class));
-
         } else if (id == R.id.nav_password) {
             startActivity(new Intent(this, ChangePasswdActivity.class));
         } else if(id== R.id.nav_historico){
@@ -315,10 +300,10 @@ public class DashboardActivity extends AppCompatActivity
     //ListView
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        //Pega o item que foi selecionado.
-//        ItemListView item = adapterListView.getItem(position);
-//        //Demostração
-//        Toast.makeText(this, "Você Clicou em: " + item.getTexto(), Toast.LENGTH_LONG).show();
+
+        //Demostração
+        Toast.makeText(this, "Passando para Tela de Visuzalização de Atendimento", Toast.LENGTH_LONG).show();
+        startActivity(new Intent(this, VisualizaAtendimentoActivity.class));
     }
 
     @Override

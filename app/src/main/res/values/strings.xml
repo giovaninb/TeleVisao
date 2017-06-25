@@ -47,6 +47,25 @@
 
 
     <string name="section_format">AGORA VAI: %1$d</string>
+    <string name="botao_iniciar">Iniciar Atendimento</string>
+    <string name="atend_user_solic">Usuário Solicitante</string>
+    <string name="atend_nome_pac">Nome do Paciente</string>
+    <string name="atend_hospital">Hospital</string>
+    <string name="atend_hospital_andar">Andar</string>
+    <string name="atend_hospital_leito">Leito</string>
+    <string name="atend_resumo">Resumo/História - Clínica</string>
+    <string name="disponivel">Paciente Disponível para Atendimento</string>
+    <string name="inicio_atend">Atendimento</string>
+    <string name="olhoEsquerdo">Olho Esquerdo</string>
+    <string name="olhoDireito">Olho Direito</string>
+    <string name="anexar_imagem">Anexar Imagem</string>
+    <string name="capturar_imagem">Capturar Imagem</string>
+    <string name="atend_hda">HDA</string>
+    <string name="action_finaliza_atendimento">Finalizar Atendimento</string>
+    <string name="hint_search">Procurar</string>
+    <string name="concluido">Atendimento Concluído por...</string>
+    <string name="registro_hda">Aqui vai o texto do HDA</string>
+    <string name="user_atend">Usuário Atendente</string>
 
 
 </resources>
