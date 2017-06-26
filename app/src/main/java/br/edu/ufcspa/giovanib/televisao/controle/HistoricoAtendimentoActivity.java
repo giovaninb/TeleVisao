@@ -37,4 +37,7 @@ public class HistoricoAtendimentoActivity extends AppCompatActivity implements S
         // onQueryTextSubmit é acionado quando o botão de busca é pressionado.
         return false;
     }
+
+
+
 }

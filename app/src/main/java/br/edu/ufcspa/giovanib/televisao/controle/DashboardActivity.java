@@ -58,7 +58,7 @@ public class DashboardActivity extends AppCompatActivity
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
 
-    ArrayList<ListarAtendimento> atendimentos = new ArrayList<>();
+    public static ArrayList<ListarAtendimento> atendimentos = new ArrayList<>();
     public static ListView listaDeAtenListView;
     public static AdapterListaAtend adapter;
 
@@ -72,7 +72,7 @@ public class DashboardActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        atendimentos = new ArrayList<>();
+        //atendimentos = new ArrayList<>();
 
 
         // Create the adapter that will return a fragment for each of the three
@@ -82,6 +82,8 @@ public class DashboardActivity extends AppCompatActivity
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+
+
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
@@ -344,6 +346,22 @@ public class DashboardActivity extends AppCompatActivity
             // TODO LISTVIEW
             listaDeAtenListView = (ListView) rootView.findViewById(R.id.lista);
             listaDeAtenListView.setAdapter(adapter);
+
+
+
+            listaDeAtenListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    SingletonSession singleton = SingletonSession.getInstance();
+                    singleton.atendimentoAtual=atendimentos.get(position);
+                    Log.d("singleton"," atendimento atual:"+singleton.atendimentoAtual.toString());
+                    Toast.makeText(getContext(), "Passando para Tela de Visuzalização de Atendimento", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(getContext(), VisualizaAtendimentoActivity.class));
+
+
+                }
+            });
 
 //            TextView teste = (TextView) rootView.findViewById(R.id.teste);
 //            teste.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));

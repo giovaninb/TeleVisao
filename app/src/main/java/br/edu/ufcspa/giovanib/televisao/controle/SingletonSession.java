@@ -24,6 +24,8 @@ public class SingletonSession {
     public  String nomeUsuario;
     public  String perfil;
     public  List<ListarAtendimento> atendimentos;
+    public ListarAtendimento atendimentoAtual;
+
 
 
     private SingletonSession() {

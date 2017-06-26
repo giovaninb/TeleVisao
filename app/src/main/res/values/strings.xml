@@ -61,6 +61,8 @@
     <string name="anexar_imagem">Anexar Imagem</string>
     <string name="capturar_imagem">Capturar Imagem</string>
     <string name="atend_hda">HDA</string>
+    <string name="conduta_atend">Conduta</string>
+    <string name="parecer_atend">Parecer</string>
     <string name="action_finaliza_atendimento">Finalizar Atendimento</string>
     <string name="hint_search">Procurar</string>
     <string name="concluido">Atendimento Concluído por...</string>

@@ -23,14 +23,15 @@ public class CadastrarHistoricoAtendimentoClient extends HttpClient{
     }
 
     public void postJson(JSONObject jsonBody){
+        Log.e("backend", "Iniciando comunicação com web service...");
         final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL + "cadastro_historico_atendimento.php", jsonBody, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
                     if(response.getString("result").equals(0)) {
-                        Log.e("Erro", "JSON Post erro");
+                        Log.e("backend", "JSON Post erro");
                     } else {
-                        Log.d("backend", "atendimento cadastrado com sucesso");
+                        Log.d("backend", "histórico de atendimento cadastrado com sucesso");
                         Log.d("backend", "response from web service:" + response.toString());
                     }
                 } catch (JSONException e) {
@@ -40,7 +41,7 @@ public class CadastrarHistoricoAtendimentoClient extends HttpClient{
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                Log.e("erro:",volleyError.toString());
+                Log.e("backend:",volleyError.toString());
                 volleyError.printStackTrace();
             }
         });
