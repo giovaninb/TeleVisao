@@ -13,7 +13,6 @@ import br.edu.ufcspa.giovanib.televisao.client.ConfirmaAtendimentoClient;
 
 public class VisualizaAtendimentoActivity extends AppCompatActivity {
 
-
     private TextView usuarioSolicitante;
     private TextView nomePaciente;
     private TextView hospital;
@@ -44,8 +43,6 @@ public class VisualizaAtendimentoActivity extends AppCompatActivity {
         resumo_clinico.setText(resumo_clinico.getText().toString() +": \n "+singleton.atendimentoAtual.getResumo_clinico());
 
     }
-
-
 
     public void iniciarOnClick(View v) {
         ConfirmaAtendimentoClient client = new ConfirmaAtendimentoClient(this);
