@@ -34,6 +34,7 @@
                 android:text="@string/disponivel" />
 
             <TextView
+                android:id="@+id/atend_usuario_solic"
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
@@ -44,6 +45,7 @@
                 android:id="@+id/txt_atend_solicitante" />
 
             <TextView
+                android:id="@+id/atend_nomePac"
                 android:layout_width="match_parent"
                 android:layout_margin="10dp"
                 android:textSize="20sp"
@@ -54,6 +56,7 @@
                 android:id="@+id/txt_atend_paciente" />
 
             <TextView
+                android:id="@+id/atend_hospital"
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
@@ -63,6 +66,7 @@
                 android:layout_height="wrap_content" />
 
             <TextView
+                android:id="@+id/atend_andar"
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
                 android:textAlignment="center"
@@ -72,6 +76,7 @@
                 android:layout_height="wrap_content" />
 
             <TextView
+                android:id="@+id/atend_leito"
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
                 android:textAlignment="center"
@@ -81,6 +86,7 @@
                 android:layout_height="wrap_content" />
 
             <TextView
+                android:id="@+id/atend_resumo_clinico"
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
                 android:textAlignment="center"
