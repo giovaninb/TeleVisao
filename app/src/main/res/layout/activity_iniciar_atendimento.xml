@@ -54,7 +54,7 @@
                             android:text="@string/olhoEsquerdo" />
 
                         <ImageView
-                            android:id="@+id/img_olhoEsquerdo"
+                            android:id="@+id/img_oEsquerdo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -98,7 +98,7 @@
                             android:text="@string/olhoDireito" />
 
                         <ImageView
-                            android:id="@+id/img_olhoDireito"
+                            android:id="@+id/img_oDireito"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"

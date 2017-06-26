@@ -3,6 +3,7 @@ package br.edu.ufcspa.giovanib.televisao.controle;
 import java.util.List;
 
 import br.edu.ufcspa.giovanib.televisao.modelo.ListarAtendimento;
+import br.edu.ufcspa.giovanib.televisao.modelo.ListarHistoricoAtendimento;
 
 /**
  * Created by icaromsc on 19/06/2017.
@@ -25,6 +26,7 @@ public class SingletonSession {
     public  String perfil;
     public  List<ListarAtendimento> atendimentos;
     public ListarAtendimento atendimentoAtual;
+    public ListarHistoricoAtendimento historicoAtendimentoAtual;
 
 
 
