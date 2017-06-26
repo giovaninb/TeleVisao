@@ -31,7 +31,7 @@ public class ListarHistoricoAtendimentoClient extends HttpClient{
     }
 
     public void post(JSONObject json) {
-        JsonArrayRequest req = new JsonArrayRequest(URL + "listar_atendimentos.php",
+        JsonArrayRequest req = new JsonArrayRequest(URL + "listar_historico_atendimentos.php",
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {

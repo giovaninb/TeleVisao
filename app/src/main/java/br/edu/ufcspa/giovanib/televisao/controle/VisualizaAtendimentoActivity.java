@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import br.edu.ufcspa.giovanib.televisao.R;
+import br.edu.ufcspa.giovanib.televisao.client.ConfirmaAtendimentoClient;
 
 public class VisualizaAtendimentoActivity extends AppCompatActivity {
 
@@ -17,7 +18,10 @@ public class VisualizaAtendimentoActivity extends AppCompatActivity {
     }
 
     public void iniciarOnClick(View v) {
-        Toast.makeText(getApplicationContext(), "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
+        ConfirmaAtendimentoClient client = new ConfirmaAtendimentoClient(this);
+        SingletonSession singleton = SingletonSession.getInstance();
+        client.send(singleton.atendimentoAtual.getId_atendimento());
+        Toast.makeText(getApplicationContext(), "Atendimento confirmado com sucesso!", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this, IniciarAtendimentoActivity.class));
     }
 }

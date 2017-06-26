@@ -290,7 +290,7 @@ public class DashboardActivity extends AppCompatActivity
         } else if (id == R.id.nav_password) {
             startActivity(new Intent(this, ChangePasswdActivity.class));
         } else if(id== R.id.nav_historico){
-            startActivity(new Intent(this, ImageGalleryDemoActivity.class));
+            startActivity(new Intent(this, HistoricoAtendimentoActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
