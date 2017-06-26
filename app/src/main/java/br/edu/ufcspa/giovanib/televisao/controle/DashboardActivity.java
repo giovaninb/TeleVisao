@@ -95,11 +95,10 @@ public class DashboardActivity extends AppCompatActivity
                 mViewPager.setCurrentItem(tab.getPosition());
                 switch (tab.getPosition()) {
                     case 0:
-                        Log.e("TAG","Atendimentos");
-
+                        Log.e("TAG","Usuários");
                         break;
                     case 1:
-                        Log.e("TAG","Usuários");
+                        Log.e("TAG","Atendimentos");
                         break;
                 }
             }
@@ -171,12 +170,6 @@ public class DashboardActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Toast toast = Toast.makeText(this, "Configurações", Toast.LENGTH_SHORT);
-            toast.show();
-            return true;
-        }
-
         if (id == R.id.action_about) {
             startActivity(new Intent(this, SobreActivity.class));
             return true;
@@ -284,6 +277,10 @@ public class DashboardActivity extends AppCompatActivity
         } else if (id == R.id.nav_about) {
             startActivity(new Intent(this, SobreActivity.class));
         } else if (id == R.id.nav_logoff) {
+            startActivity(new Intent(this, LoginActivity.class));
+            SharedPreferences sp = getSharedPreferences(PREF_LOGIN, Context.MODE_PRIVATE);
+            SharedPreferences.Editor edit = sp.edit();
+            edit.clear().commit();
             finish();
         } else if (id == R.id.nav_camera) {
             startActivity(new Intent(this, MyCameraActivity.class));
@@ -398,9 +395,9 @@ public class DashboardActivity extends AppCompatActivity
             String user = getString(R.string.tabbed_user);
             switch (position) {
                 case 0:
-                    return atend;
-                case 1:
                     return user;
+                case 1:
+                    return atend;
             }
             return null;
         }

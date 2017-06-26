@@ -68,6 +68,9 @@
     <string name="concluido">Atendimento Concluído por...</string>
     <string name="registro_hda">Aqui vai o texto do HDA</string>
     <string name="user_atend">Usuário Atendente</string>
+    <string name="atend_perfil">Perfil Solicitante</string>
+    <string name="atend_conduta">Conduta</string>
+    <string name="atend_parecer">Parecer</string>
 
 
 </resources>
