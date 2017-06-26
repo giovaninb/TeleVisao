@@ -10,7 +10,6 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -33,7 +32,7 @@ import br.edu.ufcspa.giovanib.televisao.R;
 import br.edu.ufcspa.giovanib.televisao.client.CadastrarHistoricoAtendimentoClient;
 import br.edu.ufcspa.giovanib.televisao.modelo.CadastroHistoricoAtendimento;
 
-public class IniciarAtendimentoActivity extends AppCompatActivity {
+public class RegistrarHistoricoAtendimentoActivity extends AppCompatActivity {
 
     private static int RESULT_LOAD_IMAGE = 1;
     private static final int CAMERA_REQUEST = 1888;
@@ -64,7 +63,7 @@ public class IniciarAtendimentoActivity extends AppCompatActivity {
             olhoEscolhido = "E";
         }
 
-        ActivityCompat.requestPermissions(IniciarAtendimentoActivity.this,
+        ActivityCompat.requestPermissions(RegistrarHistoricoAtendimentoActivity.this,
                 new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},1);
     }
 
@@ -93,6 +92,7 @@ public class IniciarAtendimentoActivity extends AppCompatActivity {
     public void finalizarOnClick(View v ){
         uploadImagens();
         enviarDadosWebService();
+        finish();
     }
 
 
@@ -217,7 +217,7 @@ public class IniciarAtendimentoActivity extends AppCompatActivity {
 
                     // permission denied, boo! Disable the
                     // functionality that depends on this permission.
-                    Toast.makeText(IniciarAtendimentoActivity.this, "Permission denied to read your External storage", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistrarHistoricoAtendimentoActivity.this, "Permission denied to read your External storage", Toast.LENGTH_SHORT).show();
                 }
                 return;
             }

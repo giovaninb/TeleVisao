@@ -22,6 +22,7 @@ public class VisualizaAtendimentoActivity extends AppCompatActivity {
         SingletonSession singleton = SingletonSession.getInstance();
         client.send(singleton.atendimentoAtual.getId_atendimento());
         Toast.makeText(getApplicationContext(), "Atendimento confirmado com sucesso!", Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(this, IniciarAtendimentoActivity.class));
+        startActivity(new Intent(this, RegistrarHistoricoAtendimentoActivity.class));
+        finish();
     }
 }

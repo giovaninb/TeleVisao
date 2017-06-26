@@ -107,9 +107,9 @@
                 android:value="br.edu.ufcspa.giovanib.televisao.controle.DashboardActivity" />
         </activity>
 
-        <!-- IniciarAtendimentoActivity -->
+        <!-- RegistrarHistoricoAtendimentoActivity -->
         <activity
-            android:name=".controle.IniciarAtendimentoActivity"
+            android:name=".controle.RegistrarHistoricoAtendimentoActivity"
             android:label="@string/app_name" >
         </activity>
 
