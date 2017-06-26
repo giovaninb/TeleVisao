@@ -61,6 +61,7 @@ public class DashboardActivity extends AppCompatActivity
     public static ArrayList<ListarAtendimento> atendimentos = new ArrayList<>();
     public static ListView listaDeAtenListView;
     public static AdapterListaAtend adapter;
+    public static AdapterListaAtend adapterListaAtend;
 
     private TextView usuario;
     private TextView perfil;
@@ -141,8 +142,6 @@ public class DashboardActivity extends AppCompatActivity
 
         // TODO VERIFICAR POST
         post(null);
-
-
     }
 
     @Override
@@ -259,7 +258,7 @@ public class DashboardActivity extends AppCompatActivity
 
 
     public void popularListView(){
-        AdapterListaAtend adapterListaAtend = new AdapterListaAtend(atendimentos,this);
+        adapterListaAtend  = new AdapterListaAtend(atendimentos,this);
         listaDeAtenListView.setAdapter(adapterListaAtend);
     }
 
@@ -270,7 +269,7 @@ public class DashboardActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
+        listaDeAtenListView= null;
         if (id == R.id.nav_solicita_atendimento) {
             startActivity(new Intent(this, SolicitaAtendimentoActivity.class));
         } else if (id == R.id.nav_about) {
@@ -363,6 +362,25 @@ public class DashboardActivity extends AppCompatActivity
 //            teste.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             return rootView;
         }
+    }
+
+
+
+    public void clearlistview()
+    {
+        //listaDeAtenListView.setAdapter(null);
+        adapter.notifyDataSetChanged();
+        adapterListaAtend.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onDestroy() {
+        try {
+            clearlistview();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        super.onDestroy();
     }
 
     /**

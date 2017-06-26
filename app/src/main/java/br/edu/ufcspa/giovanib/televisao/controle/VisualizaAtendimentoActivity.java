@@ -36,12 +36,12 @@ public class VisualizaAtendimentoActivity extends AppCompatActivity {
         leito = (TextView) findViewById(R.id.atend_leito);
         resumo_clinico = (TextView) findViewById(R.id.atend_resumo_clinico);
 
-        usuarioSolicitante.setText(singleton.atendimentoAtual.getNome_usuario_solicitante());
-        nomePaciente.setText(singleton.atendimentoAtual.getNome_paciente());
-        hospital.setText(singleton.atendimentoAtual.getHospital());
-        andar.setText(singleton.atendimentoAtual.getAndar());
-        leito.setText(singleton.atendimentoAtual.getLeito());
-        resumo_clinico.setText(singleton.atendimentoAtual.getResumo_clinico());
+        usuarioSolicitante.setText(usuarioSolicitante.getText().toString() +": \n" + singleton.atendimentoAtual.getNome_usuario_solicitante());
+        nomePaciente.setText(nomePaciente.getText().toString() +": \n" + singleton.atendimentoAtual.getNome_paciente());
+        hospital.setText(hospital.getText().toString() +": \n "+ singleton.atendimentoAtual.getHospital());
+        andar.setText(andar.getText().toString() +": "+ singleton.atendimentoAtual.getAndar());
+        leito.setText(leito.getText().toString() +": "   +singleton.atendimentoAtual.getLeito());
+        resumo_clinico.setText(resumo_clinico.getText().toString() +": \n "+singleton.atendimentoAtual.getResumo_clinico());
 
     }
 
