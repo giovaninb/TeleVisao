@@ -268,7 +268,6 @@ public class DashboardActivity extends AppCompatActivity
     public void popularListView(){
         AdapterListaAtend adapterListaAtend = new AdapterListaAtend(atendimentos,this);
         listaDeAtenListView.setAdapter(adapterListaAtend);
-
     }
 
 
@@ -398,9 +397,9 @@ public class DashboardActivity extends AppCompatActivity
             String user = getString(R.string.tabbed_user);
             switch (position) {
                 case 0:
-                    return atend;
-                case 1:
                     return user;
+                case 1:
+                    return atend;
             }
             return null;
         }

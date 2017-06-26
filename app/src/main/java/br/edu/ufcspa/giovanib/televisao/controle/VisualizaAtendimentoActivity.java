@@ -4,13 +4,13 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import br.edu.ufcspa.giovanib.televisao.R;
 import br.edu.ufcspa.giovanib.televisao.client.ConfirmaAtendimentoClient;
 
 public class VisualizaAtendimentoActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
