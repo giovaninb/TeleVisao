@@ -147,12 +147,12 @@ public class RegistrarHistoricoAtendimentoActivity extends AppCompatActivity {
             if(olhoEscolhido=="D"){
                 pathOlhoD = cursor.getString(columnIndex);
                 cursor.close();
-                ImageView imageView = (ImageView) findViewById(R.id.img_olhoDireito);
+                ImageView imageView = (ImageView) findViewById(R.id.img_oDireito);
                 imageView.setImageBitmap(BitmapFactory.decodeFile(pathOlhoD));
             } else if (olhoEscolhido=="E"){
                 pathOlhoE = cursor.getString(columnIndex);
                 cursor.close();
-                ImageView imageView = (ImageView) findViewById(R.id.img_olhoEsquerdo);
+                ImageView imageView = (ImageView) findViewById(R.id.img_oEsquerdo);
                 imageView.setImageBitmap(BitmapFactory.decodeFile(pathOlhoE));
             }
             olhoEscolhido="NULL";
@@ -185,11 +185,11 @@ public class RegistrarHistoricoAtendimentoActivity extends AppCompatActivity {
 //            imageView.getBitmap(photo);
             if(olhoEscolhido=="D"){
                 pathOlhoD = filePath;
-                ImageView imageView = (ImageView) findViewById(R.id.img_olhoDireito);
+                ImageView imageView = (ImageView) findViewById(R.id.img_oDireito);
                 imageView.setImageBitmap(BitmapFactory.decodeFile(pathOlhoD));
             } else if (olhoEscolhido=="E"){
                 pathOlhoE =filePath;
-                ImageView imageView = (ImageView) findViewById(R.id.img_olhoEsquerdo);
+                ImageView imageView = (ImageView) findViewById(R.id.img_oEsquerdo);
                 imageView.setImageBitmap(BitmapFactory.decodeFile(pathOlhoE));
             }
             olhoEscolhido="NULL";

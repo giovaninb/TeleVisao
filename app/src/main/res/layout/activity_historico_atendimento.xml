@@ -11,7 +11,7 @@
 
 
     <ListView
-        android:id="@+id/listaHistorico"
+        android:id="@+id/listViewHistorico"
         android:layout_width="match_parent"
         android:paddingBottom="45dp"
         android:layout_height="match_parent">

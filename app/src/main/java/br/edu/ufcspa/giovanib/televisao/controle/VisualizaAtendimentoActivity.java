@@ -45,12 +45,26 @@ public class VisualizaAtendimentoActivity extends AppCompatActivity {
     }
 
     public void iniciarOnClick(View v) {
-        ConfirmaAtendimentoClient client = new ConfirmaAtendimentoClient(this);
+       /* ConfirmaAtendimentoClient client = new ConfirmaAtendimentoClient(this);
         SingletonSession singleton = SingletonSession.getInstance();
-        client.send(singleton.atendimentoAtual.getId_atendimento());
-        Toast.makeText(getApplicationContext(), "Atendimento confirmado com sucesso!", Toast.LENGTH_SHORT).show();
+        client.send(singleton.atendimentoAtual.getId_atendimento());*/
+        Toast.makeText(getApplicationContext(), "Iniciando antendimento!", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this, RegistrarHistoricoAtendimentoActivity.class));
         finish();
+    }
+
+
+    public String getPerfil(String perfil){
+        switch (perfil){
+            case "A":
+                return "Aluno";
+            case "P":
+                return "Professor";
+            case "M":
+                return "Médico";
+            default:
+                return "Profissional";
+        }
     }
 
 

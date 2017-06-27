@@ -55,17 +55,17 @@ public class VisualizaHistoricoActivity extends AppCompatActivity {
         conduta = (TextView) findViewById(R.id.conduta);
         parecer = (TextView) findViewById(R.id.parecer);
 
-        nome_usuario_solicitante.setText(singleton.historicoAtendimentoAtual.getNome_usuario_solicitante());
-        perfil_solicitante.setText(singleton.historicoAtendimentoAtual.getPerfil_solicitante());
-        nome_paciente.setText(singleton.historicoAtendimentoAtual.getNome_paciente());
-        n_prontuario.setText(singleton.historicoAtendimentoAtual.getN_prontuario());
-        hospital.setText(singleton.historicoAtendimentoAtual.getHospital());
-        andar.setText(singleton.historicoAtendimentoAtual.getAndar());
-        status.setText(singleton.historicoAtendimentoAtual.getStatus());
-        leito.setText(singleton.historicoAtendimentoAtual.getLeito());
-        resumo_clinico.setText(singleton.historicoAtendimentoAtual.getResumo_clinico());
-        nome_usuario_responsavel.setText(singleton.historicoAtendimentoAtual.getNome_usuario_responsavel());
-        perfil_responsavel.setText(singleton.historicoAtendimentoAtual.getPerfil_responsavel());
+        nome_usuario_solicitante.setText(nome_usuario_solicitante.getText().toString()+": "+singleton.historicoAtendimentoAtual.getNome_usuario_solicitante());
+        perfil_solicitante.setText(perfil_solicitante.getText().toString()+": "+getPerfil(singleton.historicoAtendimentoAtual.getPerfil_solicitante()));
+        nome_paciente.setText(nome_paciente.getText().toString()+": "+singleton.historicoAtendimentoAtual.getNome_paciente());
+        n_prontuario.setText(n_prontuario.getText().toString()+": "+singleton.historicoAtendimentoAtual.getN_prontuario());
+        hospital.setText(hospital.getText().toString()+": "+singleton.historicoAtendimentoAtual.getHospital());
+        andar.setText(andar.getText().toString()+": "+singleton.historicoAtendimentoAtual.getAndar());
+        status.setText(status.getText().toString()+": "+singleton.historicoAtendimentoAtual.getStatus());
+        leito.setText(leito.getText().toString()+": "+singleton.historicoAtendimentoAtual.getLeito());
+        resumo_clinico.setText(resumo_clinico.getText().toString()+": \n"+singleton.historicoAtendimentoAtual.getResumo_clinico());
+        nome_usuario_responsavel.setText(nome_usuario_responsavel.getText().toString()+": "+singleton.historicoAtendimentoAtual.getNome_usuario_responsavel());
+        perfil_responsavel.setText(perfil_responsavel.getText().toString()+": "+getPerfil(singleton.historicoAtendimentoAtual.getPerfil_responsavel()));
         // Carrega imagens
 
         Picasso.with(this.getApplicationContext()).load(singleton.historicoAtendimentoAtual.getOlho_d()).into(olho_d);
@@ -73,7 +73,20 @@ public class VisualizaHistoricoActivity extends AppCompatActivity {
 
         conduta.setText(singleton.historicoAtendimentoAtual.getConduta());
         parecer.setText(singleton.historicoAtendimentoAtual.getParecer());
-
     }
+
+    public String getPerfil(String perfil){
+        switch (perfil){
+            case "A":
+               return "Aluno";
+            case "P":
+                return "Professor";
+            case "M":
+                return "Médico";
+            default:
+                return "Profissional";
+        }
+    }
+
 
 }

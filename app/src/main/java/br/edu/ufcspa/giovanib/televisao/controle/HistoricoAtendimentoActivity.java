@@ -1,5 +1,6 @@
 package br.edu.ufcspa.giovanib.televisao.controle;
 
+import android.content.Intent;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +8,9 @@ import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -31,11 +35,29 @@ public class HistoricoAtendimentoActivity extends AppCompatActivity implements S
 
 
     ArrayList<ListarHistoricoAtendimento> atendimentos = new ArrayList<>();
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historico_atendimento);
+        listView = (ListView) findViewById(R.id.listViewHistorico);
+
+
+        post();
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                SingletonSession singleton = SingletonSession.getInstance();
+                singleton.historicoAtendimentoAtual= atendimentos.get(position);
+                startActivity(new Intent(getBaseContext(), VisualizaHistoricoActivity.class));
+            }
+        });
+
+
+
     }
 
     @Override
@@ -62,7 +84,7 @@ public class HistoricoAtendimentoActivity extends AppCompatActivity implements S
 
 
 
-    public void post(JSONObject json) {
+    public void post() {
         JsonArrayRequest req = new JsonArrayRequest(HttpClient.URL + "listar_historico_atendimentos.php",
                 new Response.Listener<JSONArray>() {
                     @Override
@@ -85,16 +107,13 @@ public class HistoricoAtendimentoActivity extends AppCompatActivity implements S
                                         .get(i);
                                 ListarHistoricoAtendimento l = gson.fromJson(person.toString(), ListarHistoricoAtendimento.class);
                                 atendimentos.add(l);
-
-
-                                //Log.d("backend", "gson coverted to ListarAtendimento object:"+l.toString());
                                 Log.d("backend","json obj:"+person.toString());
 
                             }
 
 
 
-
+                            popularListView();
                         } catch (JSONException e) {
                             e.printStackTrace();
                            /* Toast.makeText(getApplicationContext(),
@@ -119,8 +138,9 @@ public class HistoricoAtendimentoActivity extends AppCompatActivity implements S
 
 
     public void popularListView(){
-        /*AdapterListaAtend adapterListaAtend = new AdapterListaAtend(atendimentos,this);
-        listaDeAtenListView.setAdapter(adapterListaAtend);*/
+        Log.d("listview","populando...");
+        AdapterListaHistorico adapterListaHistorico = new AdapterListaHistorico(atendimentos,this);
+        listView.setAdapter(adapterListaHistorico);
     }
 
 
