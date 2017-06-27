@@ -132,7 +132,7 @@ public class DashboardActivity extends AppCompatActivity
         SingletonSession session = SingletonSession.getInstance();
         Log.d("singleton","sharedPref on singleton:"+session.toString());
         usuario.setText(session.nomeUsuario);
-        perfil.setText(session.perfil);
+        perfil.setText(getPerfil(session.perfil));
 
         ListarAtendimentosClient client = new ListarAtendimentosClient(this);
         ListarAtendimentosRequest request = new ListarAtendimentosRequest();
@@ -184,6 +184,21 @@ public class DashboardActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
+
+
+    public String getPerfil(String perfil){
+        switch (perfil){
+            case "A":
+                return "Aluno";
+            case "P":
+                return "Professor";
+            case "M":
+                return "Médico";
+            default:
+                return "Profissional";
+        }
+    }
+
 
 
 

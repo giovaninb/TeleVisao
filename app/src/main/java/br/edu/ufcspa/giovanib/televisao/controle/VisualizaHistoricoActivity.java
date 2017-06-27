@@ -55,16 +55,16 @@ public class VisualizaHistoricoActivity extends AppCompatActivity {
         conduta = (TextView) findViewById(R.id.conduta);
         parecer = (TextView) findViewById(R.id.parecer);
 
-        nome_usuario_solicitante.setText(nome_usuario_solicitante.getText().toString()+": "+singleton.historicoAtendimentoAtual.getNome_usuario_solicitante());
+        nome_usuario_solicitante.setText(nome_usuario_solicitante.getText().toString()+":\n "+singleton.historicoAtendimentoAtual.getNome_usuario_solicitante());
         perfil_solicitante.setText(perfil_solicitante.getText().toString()+": "+getPerfil(singleton.historicoAtendimentoAtual.getPerfil_solicitante()));
-        nome_paciente.setText(nome_paciente.getText().toString()+": "+singleton.historicoAtendimentoAtual.getNome_paciente());
+        nome_paciente.setText(nome_paciente.getText().toString()+":\n "+singleton.historicoAtendimentoAtual.getNome_paciente());
         n_prontuario.setText(n_prontuario.getText().toString()+": "+singleton.historicoAtendimentoAtual.getN_prontuario());
         hospital.setText(hospital.getText().toString()+": "+singleton.historicoAtendimentoAtual.getHospital());
         andar.setText(andar.getText().toString()+": "+singleton.historicoAtendimentoAtual.getAndar());
         status.setText(status.getText().toString()+": "+singleton.historicoAtendimentoAtual.getStatus());
         leito.setText(leito.getText().toString()+": "+singleton.historicoAtendimentoAtual.getLeito());
         resumo_clinico.setText(resumo_clinico.getText().toString()+": \n"+singleton.historicoAtendimentoAtual.getResumo_clinico());
-        nome_usuario_responsavel.setText(nome_usuario_responsavel.getText().toString()+": "+singleton.historicoAtendimentoAtual.getNome_usuario_responsavel());
+        nome_usuario_responsavel.setText(nome_usuario_responsavel.getText().toString()+":\n "+singleton.historicoAtendimentoAtual.getNome_usuario_responsavel());
         perfil_responsavel.setText(perfil_responsavel.getText().toString()+": "+getPerfil(singleton.historicoAtendimentoAtual.getPerfil_responsavel()));
         // Carrega imagens
 

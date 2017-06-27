@@ -13,7 +13,7 @@
     <ListView
         android:id="@+id/listViewHistorico"
         android:layout_width="match_parent"
-        android:paddingBottom="45dp"
+        android:layout_margin="10dp"
         android:layout_height="match_parent">
     </ListView>
 

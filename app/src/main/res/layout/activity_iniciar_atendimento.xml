@@ -13,6 +13,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="vertical"
+            android:padding="5dp"
+            android:layout_margin="10dp"
             android:layout_height="match_parent">
 
             <TextView
@@ -55,8 +57,8 @@
 
                         <ImageView
                             android:id="@+id/img_oEsquerdo"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
                             android:layout_gravity="center"
                             app:srcCompat="@mipmap/ic_logo" />
 
@@ -65,6 +67,7 @@
                             android:layout_width="match_parent"
                             android:layout_gravity="center"
                             android:layout_marginTop="10dp"
+                            android:padding="5dp"
                             android:onClick="capturarOnClick"
                             android:background="@color/colorPrimary"
                             android:text="@string/capturar_imagem"
@@ -75,6 +78,7 @@
                             android:layout_width="match_parent"
                             android:layout_gravity="center"
                             android:layout_marginTop="10dp"
+                            android:padding="5dp"
                             android:onClick="anexarOnClick"
                             android:background="@color/colorPrimary"
                             android:text="@string/anexar_imagem"
@@ -99,8 +103,8 @@
 
                         <ImageView
                             android:id="@+id/img_oDireito"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
                             android:layout_gravity="center"
                             app:srcCompat="@mipmap/ic_logo" />
 
@@ -109,6 +113,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:padding="5dp"
                             android:layout_marginTop="10dp"
                             android:background="@color/colorPrimary"
                             android:onClick="capturarOnClick"
@@ -118,6 +123,7 @@
                             android:id="@+id/btn_anexarOD"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:padding="5dp"
                             android:layout_gravity="center"
                             android:layout_marginTop="10dp"
                             android:background="@color/colorPrimary"

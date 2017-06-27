@@ -1,37 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="match_parent"
     android:orientation="horizontal">
 
     <ImageView
         android:id="@+id/lista_atend_imagem"
         android:layout_width="100dp"
         android:src="@mipmap/ic_atend_disp"
-        android:layout_height="match_parent" />
+        android:layout_height="100dp" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <Space
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="@string/solicAt_nomePac"
+            android:textSize="8pt" />
 
         <TextView
             android:id="@+id/lista_atend_nomePac"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/solicAt_nomePac"
-            android:textSize="30dp" />
+            android:textSize="6pt" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/solicAt_hospital"
+            android:textStyle="bold"
+            android:textSize="8pt" />
 
         <TextView
             android:id="@+id/lista_atend_hospital"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/solicAt_hospital"
-            android:textSize="20dp" />
+            android:textSize="6pt" />
 
     </LinearLayout>
 
